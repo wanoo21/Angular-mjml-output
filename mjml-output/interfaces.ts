@@ -3,31 +3,31 @@ export interface RenderingClass {
 }
 
 export abstract class TextBlock {
-  readonly type?: string;
+  readonly type?: 'text';
   readonly icon?: string;
   constructor(public innerText: string, public options: ITextBlockOptions) {}
 }
 
 export abstract class ImageBlock {
-  readonly type?: string;
+  readonly type?: 'image';
   readonly icon?: string;
   constructor(public src: string, public options: IImageBLockOptions) {}
 }
 
 export abstract class ButtonBlock {
-  readonly type?: string;
+  readonly type?: 'button';
   readonly icon?: string;
   constructor(public innerText: string, public options: IButtonBlockOptions) {}
 }
 
 export abstract class DividerBlock {
-  readonly type?: string;
+  readonly type?: 'divider';
   readonly icon?: string;
   constructor(public options: IDividerBlockOptions) {}
 }
 
 export abstract class SpacerBlock {
-  readonly type?: string;
+  readonly type?: 'spacer';
   readonly icon?: string;
   constructor(public options: ISpacerBlockOptions) {}
 }

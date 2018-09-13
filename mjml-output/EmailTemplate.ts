@@ -19,6 +19,41 @@ export class EmailTemplate {
             font-family="Roboto"
           ></mj-all>
         </mj-attributes>
+          <mj-style>
+            .ip-text-block p, h1, h2 {
+              margin: 0;
+            }
+            .ip-text-block h1 {
+              font-size: 2em;
+            }
+            .ip-text-block h2, .ql-size-large {
+              font-size: 1.5em;
+            }
+            .ip-text-block .ql-size-small {
+              font-size: 0.75em;
+            }
+            .ip-text-block .ql-size-huge {
+              font-size: 2.5em;
+            }
+            .ip-text-block .ql-align-left {
+              text-align: left;
+            }
+            .ip-text-block .ql-align-center {
+              text-align: center;
+            }
+            .ip-text-block .ql-align-right {
+              text-align: right;
+            }
+            .ip-text-block .ql-align-justify {
+              text-align: justify;
+            }
+            .ip-text-block .ql-direction-rtl {
+              direction: rtl !important;
+            }
+            .ip-text-block .ql-direction-ltr {
+              direction: ltr !important;
+            }
+          </mj-style>
           <mj-style inline="inline">
             html, body, .body { height: 100%; }
             .body {

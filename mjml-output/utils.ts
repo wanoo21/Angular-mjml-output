@@ -50,7 +50,7 @@ export const createLineHeight = ({
   value = 22,
   unit = 'px'
 }: ILineHeight): string | number => {
-  return unit !== 'none' ? `${value}${unit}` : value;
+  return unit !== 'none' ? `${value}${unit}` : '120%';
 };
 
 export const createWidthHeight = ({

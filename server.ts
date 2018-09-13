@@ -15,11 +15,7 @@ app.disable('etag').disable('x-powered-by');
 
 app.use(cors());
 app.use(json());
-app.use(
-  urlencoded({
-    extended: true
-  })
-);
+app.use(urlencoded({ extended: true }));
 
 app.set('port', PORT || 3001);
 app.set('isProduction', isProduction);

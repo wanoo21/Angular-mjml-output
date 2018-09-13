@@ -1,13 +1,4 @@
-import {
-  IStructure,
-  RenderingClass,
-  TextBlock,
-  IpBlocks,
-  ImageBlock,
-  ButtonBlock,
-  DividerBlock,
-  SpacerBlock
-} from './interfaces';
+import { IStructure, RenderingClass, IpBlocks } from './interfaces';
 import { Text, Image, Button, Divider, Spacer } from './blocks';
 import { createBorder, createWidthHeight, createPadding } from './utils';
 
@@ -17,24 +8,15 @@ export class Section implements RenderingClass {
   private getBlock(block: IpBlocks) {
     switch (block.type) {
       case 'text':
-        return new Text(
-          (<TextBlock>block).innerText,
-          (<TextBlock>block).options
-        ).render();
+        return new Text(block.innerText, block.options).render();
       case 'image':
-        return new Image(
-          (<ImageBlock>block).src,
-          (<ImageBlock>block).options
-        ).render();
+        return new Image(block.src, block.options).render();
       case 'button':
-        return new Button(
-          (<ButtonBlock>block).innerText,
-          (<ButtonBlock>block).options
-        ).render();
+        return new Button(block.innerText, block.options).render();
       case 'divider':
-        return new Divider((<DividerBlock>block).options).render();
+        return new Divider(block.options).render();
       case 'spacer':
-        return new Spacer((<SpacerBlock>block).options).render();
+        return new Spacer(block.options).render();
     }
   }
 
