@@ -19,7 +19,7 @@ export class EmailTemplate {
             font-family="Roboto"
           ></mj-all>
         </mj-attributes>
-          <mj-style>
+          <mj-style inline="inline">
             .ip-text-block p, h1, h2 {
               margin: 0;
             }
@@ -53,9 +53,6 @@ export class EmailTemplate {
             .ip-text-block .ql-direction-ltr {
               direction: ltr !important;
             }
-          </mj-style>
-          <mj-style inline="inline">
-            html, body, .body { height: 100%; }
             .body {
               padding: ${createPadding(general.padding)};
               background: ${createBackground(general.background)};

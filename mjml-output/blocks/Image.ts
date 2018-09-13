@@ -1,5 +1,5 @@
 import { RenderingClass, ImageBlock, IImageBLockOptions } from '../interfaces';
-import { createPadding, createBorder, createWidthHeight } from '../utils';
+import { createPadding, createBorder } from '../utils';
 
 export class Image implements ImageBlock, RenderingClass {
   constructor(public src: string, public options: IImageBLockOptions) {}

@@ -124,7 +124,7 @@ export interface IStructureOptions {
   border: IBorder;
   background: IBackground;
   padding: IPadding;
-  direction: TDirection;
+  // direction: TDirection;
 }
 
 export interface IStructure {

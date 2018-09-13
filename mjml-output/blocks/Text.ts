@@ -18,7 +18,7 @@ export class Text implements TextBlock, RenderingClass {
         align="left"
         line-height="${createLineHeight(lineHeight)}"
         padding="${createPadding(padding)}">
-          ${this.innerText}
+          ${this.innerText || ''}
       </mj-text>
     `;
   }

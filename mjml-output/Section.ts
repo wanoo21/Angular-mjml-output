@@ -1,4 +1,9 @@
-import { IStructure, RenderingClass, IpBlocks } from './interfaces';
+import {
+  IStructure,
+  RenderingClass,
+  IpBlocks,
+  TStructreTypes
+} from './interfaces';
 import { Text, Image, Button, Divider, Spacer } from './blocks';
 import { createBorder, createWidthHeight, createPadding } from './utils';
 
@@ -20,6 +25,13 @@ export class Section implements RenderingClass {
     }
   }
 
+  private getColumnWidth(type: TStructreTypes, index: number) {
+    if (type === 'cols_12') {
+      return index === 0 ? 60 : 40;
+    }
+    return index === 0 ? 40 : 60;
+  }
+
   render() {
     const { type, options, elements } = this.structure;
     return `
@@ -37,9 +49,17 @@ export class Section implements RenderingClass {
             ? createWidthHeight(options.background.size)
             : 'auto'
         }">
-        ${elements.map(el => {
+        ${elements.map((el, index) => {
           return `
-            <mj-column padding="0" vertical-align="top" css-class="ip-column">
+            <mj-column
+              ${
+                ['cols_12', 'cols_21'].includes(type)
+                  ? `width="${this.getColumnWidth(type, index)}%"`
+                  : ''
+              }
+              padding="0"
+              vertical-align="top"
+              css-class="ip-column">
               ${el.map(block => <string>this.getBlock(block))}
             </mj-column>
             `;
