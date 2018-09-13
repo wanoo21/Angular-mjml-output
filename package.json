@@ -1,0 +1,28 @@
+{
+  "name": "mjml-email-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec ts-node server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "mjml": "^4.1.2",
+    "ts-node": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/mjml": "^4.0.0",
+    "@types/node": "^10.9.4",
+    "nodemon": "^1.18.3",
+    "typescript": "^3.0.3"
+  }
+}
