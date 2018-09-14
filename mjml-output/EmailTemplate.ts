@@ -20,9 +20,7 @@ export class EmailTemplate {
           ></mj-all>
         </mj-attributes>
           <mj-style inline="inline">
-            * {
-              box-sizing: border-box;
-            }
+            * { box-sizing: border-box; }
             .ip-text-block p, h1, h2 {
               margin: 0;
             }

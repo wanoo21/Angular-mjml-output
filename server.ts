@@ -21,8 +21,14 @@ app.set('port', PORT || 3001);
 app.set('isProduction', isProduction);
 
 app.post('/', (req: Request, res: Response) => {
-  const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);
-  res.json(output);
+  // Check api key, just to emulate AWS forbiddden response
+  const apiKey = req.get('x-api-key');
+  if (!apiKey || apiKey !== 'hOU13Tc55m3pDZ1AJkGWvaBki1U6Xol01p6zaUvt') {
+    res.status(403).end();
+  } else {
+    const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);
+    res.json(output);
+  }
 });
 
 app.get('/ping', (req: Request, res: Response) => {
