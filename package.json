@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node server.ts"
+    "start": "NODE_ENV=production node dist/server.js",
+    "dev": "nodemon --exec ts-node server.ts",
+    "build": "rimraf dist && tsc"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "@types/mjml": "^4.0.0",
     "@types/node": "^10.9.4",
     "nodemon": "^1.18.3",
+    "rimraf": "^2.6.2",
     "typescript": "^3.0.3"
   }
 }

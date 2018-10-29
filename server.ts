@@ -3,7 +3,7 @@ import cors from 'cors';
 import { json, urlencoded } from 'body-parser';
 import { Request, Response } from 'express';
 import { IIPDefaultEmail } from 'mjml-output/interfaces';
-import mjmlOutput from './mjml-output';
+import mjmlOutput, { onlyMJML } from './mjml-output';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -29,6 +29,11 @@ app.post('/', (req: Request, res: Response) => {
     const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);
     res.json(output);
   }
+});
+
+app.post('/mjml', (req: Request, res: Response) => {
+  const mjml = onlyMJML(<IIPDefaultEmail>req.body);
+  res.json({ mjml });
 });
 
 app.get('/ping', (req: Request, res: Response) => {
