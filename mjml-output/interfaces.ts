@@ -87,6 +87,11 @@ export interface IPadding {
   left: number;
 }
 
+export interface IMargin {
+  top: number;
+  bottom: number;
+}
+
 export interface IWidthHeight {
   value: number;
   unit: TUnits;
@@ -103,6 +108,7 @@ export interface IBackground {
 
 export interface IFont {
   family: string;
+  fallback: string;
   size: number;
   style?: TFontStyle;
   weight?: TFontWeight;
@@ -124,11 +130,13 @@ export interface IStructureOptions {
   border: IBorder;
   background: IBackground;
   padding: IPadding;
+  margin: IMargin;
   // direction: TDirection;
 }
 
 export interface IStructure {
   readonly type: TStructreTypes;
+  readonly id: number;
   options: IStructureOptions;
   elements: IpBlocks[][];
   readonly columns: number;
@@ -182,7 +190,9 @@ export interface IGeneralOptions {
   background: IBackground;
   padding: IPadding;
   direction: TDirection;
+  previewText: string;
   global: {
+    fonts: string[];
     padding: IPadding;
   };
 }

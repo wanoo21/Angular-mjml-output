@@ -33,11 +33,11 @@ export class Section implements RenderingClass {
   }
 
   render() {
-    const { type, options, elements } = this.structure;
+    const { type, id, options, elements } = this.structure;
     return `
       <mj-section
-        css-class="${type}"
-        border="${createBorder(options.border)}"
+        css-class="${type} ${id}"
+        border-radius="${options.border.radius}px"
         vertical-align="top"
         text-align="center"
         padding="${createPadding(options.padding)}"

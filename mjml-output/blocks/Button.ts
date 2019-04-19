@@ -21,8 +21,7 @@ export class Button implements ButtonBlock, RenderingClass {
       padding
     } = this.options;
     return `
-      <mj-button
-          css-class="ip-button-block"
+      <mj-button css-class="ip-button-block"
         background-color="${backgroundColor}"
         border="${createBorder(border)}"
         border-radius="${border.radius}px"
@@ -34,7 +33,7 @@ export class Button implements ButtonBlock, RenderingClass {
         target="${link.target}"
         padding="${createPadding(padding)}"
         inner-padding="${createPadding(innerPadding)}"
-        font-family="${font.family}"
+        font-family="${font.family}, ${font.fallback}"
         font-size="${font.size}px"
         font-style="${font.style}"
         font-weight="${font.weight}">

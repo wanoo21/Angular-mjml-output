@@ -1,24 +1,81 @@
 import { Section } from './Section';
 import { IIPDefaultEmail } from './interfaces';
-import { createPadding, createWidthHeight, createBackground } from './utils';
+import {
+  createPadding,
+  createWidthHeight,
+  createBackground,
+  createBorder
+} from './utils';
 
 export class EmailTemplate {
-  constructor(private templateOptions: IIPDefaultEmail) {}
+  fontsMap = new Map();
+  constructor(private template: IIPDefaultEmail) {}
+
+  private getUsedFonts() {
+    const {
+      general: {
+        global: { fonts }
+      },
+      structures
+    } = this.template;
+    const usedFonts = new Set();
+    const parsedFonts = new Map();
+
+    fonts.forEach(font => {
+      const match = font.match(/[^\d:,]{2,}/g);
+      if (match) {
+        const [family] = match;
+        parsedFonts.set(family.replace('+', ' '), font);
+      }
+    });
+
+    structures.forEach(({ elements }) => {
+      elements.forEach(column => {
+        column.forEach(({ options }) => {
+          // @ts-ignore
+          if (options.font) {
+            // @ts-ignore
+            usedFonts.add(options.font.family);
+          }
+        });
+      });
+    });
+
+    return [...usedFonts].map(family => {
+      const font = parsedFonts.get(family);
+      return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
+    });
+  }
+
+  private getStructuresStyles() {
+    return this.template.structures
+      .map(({ id, options: { margin, border } }) => {
+        return `.${id} {
+          margin-top: ${margin.top}px !important;
+          margin-bottom: ${margin.bottom}px !important;
+          border: ${createBorder(border)};
+        }`;
+      })
+      .join('');
+  }
 
   render(): string {
-    const { structures, general } = this.templateOptions;
+    const { structures, general } = this.template;
+
     return `
       <mjml>
         <mj-head>
+        <mj-preview>${general.previewText}</mj-preview>
+        ${this.getUsedFonts()}
         <mj-attributes>
           <mj-all
             padding="${createPadding(general.global.padding)}"
             direction="${general.direction}"
-            font-family="Roboto"
+            font-family="Arial, Helvetica, sans-serif"
           ></mj-all>
-        </mj-attributes>
+          </mj-attributes>
           <mj-style inline="inline">
-            * { box-sizing: border-box; }
+            ${this.getStructuresStyles()}
             .ip-text-block p, h1, h2 {
               margin: 0;
             }
@@ -47,10 +104,10 @@ export class EmailTemplate {
               text-align: justify;
             }
             .ip-text-block .ql-direction-rtl {
-              direction: rtl !important;
+              direction: rtl;
             }
             .ip-text-block .ql-direction-ltr {
-              direction: ltr !important;
+              direction: ltr;
             }
             .body {
               padding: ${createPadding(general.padding)};

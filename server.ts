@@ -23,7 +23,7 @@ app.set('isProduction', isProduction);
 app.post('/', (req: Request, res: Response) => {
   // Check api key, just to emulate AWS forbiddden response
   const apiKey = req.get('x-api-key');
-  if (!apiKey || apiKey !== 'hOU13Tc55m3pDZ1AJkGWvaBki1U6Xol01p6zaUvt') {
+  if (!apiKey || apiKey !== 't7HdQfZjGp6R96fOV4P8v18ggf6LLTQZ1puUI2tz') {
     res.status(403).end();
   } else {
     const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);

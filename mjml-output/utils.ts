@@ -25,13 +25,14 @@ export const createPadding = ({
 };
 
 export const createFont = ({
-  family = '',
+  family = 'Roboto',
+  fallback = 'Arial, Helvetica, sans-serif',
   size = 13,
   style = 'normal',
-  weight = 'normal'
+  weight = 400
 }: IFont) => {
   return {
-    fontFamily: family,
+    fontFamily: `${family}, ${fallback}`,
     fontSize: `${size}px`,
     fontStyle: style,
     fontWeight: weight
@@ -43,7 +44,7 @@ export const createBackground = ({
   color = 'white',
   repeat = 'no-repeat'
 }: IBackground): string => {
-  return `${color} ${url && `url(${url})`} ${repeat} top center`;
+  return `${color} ${url && `url(${url}) ${repeat} top center`}`;
 };
 
 export const createLineHeight = ({
@@ -60,7 +61,7 @@ export const createWidthHeight = ({
 }: IWidthHeight): string => {
   return (
     (auto && 'auto') ||
-    (['%', 'px'].indexOf(unit) > -1 && `${value}${unit}`) ||
+    (['%', 'px'].includes(unit) && `${value}${unit}`) ||
     unit
   );
 };

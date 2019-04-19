@@ -10,7 +10,7 @@ export class Text implements TextBlock, RenderingClass {
       <mj-text
         css-class="ip-text-block"
         color="${color}"
-        font-family="${font.family}"
+        font-family="${font.family}, ${font.fallback}"
         font-size="${font.size}px"
         font-style="${font.style}"
         font-weight="${font.weight}"

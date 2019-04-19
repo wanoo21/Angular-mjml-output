@@ -6,18 +6,10 @@ export function onlyMJML(templateOptions: IIPDefaultEmail) {
   return new EmailTemplate(templateOptions).render();
 }
 
-export default (templateOptions: IIPDefaultEmail, isProduction) => {
+export default (templateOptions: IIPDefaultEmail, isProduction: boolean) => {
   try {
     return mjml2html(new EmailTemplate(templateOptions).render(), {
-      // fonts = {
-      //   'Open Sans':
-      //     'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700',
-      //   'Droid Sans':
-      //     'https://fonts.googleapis.com/css?family=Droid+Sans:300,400,500,700',
-      //   Lato: 'https://fonts.googleapis.com/css?family=Lato:300,400,500,700',
-      //   Roboto: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700',
-      //   Ubuntu: 'https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700',
-      // },
+      fonts: {},
       keepComments: !isProduction,
       minify: isProduction,
       beautify: !isProduction,
