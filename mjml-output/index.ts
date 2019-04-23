@@ -8,16 +8,21 @@ export function onlyMJML(templateOptions: IIPDefaultEmail) {
 
 export default (templateOptions: IIPDefaultEmail, isProduction: boolean) => {
   try {
-    return mjml2html(new EmailTemplate(templateOptions).render(), {
-      fonts: {},
-      keepComments: !isProduction,
-      minify: isProduction,
-      beautify: !isProduction,
-      validationLevel: isProduction ? 'soft' : 'strict'
-    });
+    const mjml = onlyMJML(templateOptions);
+    return {
+      ...mjml2html(mjml, {
+        fonts: {},
+        keepComments: !isProduction,
+        minify: isProduction,
+        beautify: !isProduction,
+        validationLevel: isProduction ? 'soft' : 'strict'
+      }),
+      mjml
+    };
   } catch (error) {
     return {
       html: '',
+      mjml: '',
       errors: [error.message]
     };
   }

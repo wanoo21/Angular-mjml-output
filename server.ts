@@ -17,13 +17,13 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-app.set('port', PORT || 3001);
+app.set('port', PORT || 3002);
 app.set('isProduction', isProduction);
 
 app.post('/', (req: Request, res: Response) => {
   // Check api key, just to emulate AWS forbiddden response
   const apiKey = req.get('x-api-key');
-  if (!apiKey || apiKey !== 't7HdQfZjGp6R96fOV4P8v18ggf6LLTQZ1puUI2tz') {
+  if (!apiKey) {
     res.status(403).end();
   } else {
     const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);
