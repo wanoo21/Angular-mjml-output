@@ -1,8 +1,8 @@
 {
   "name": "mjml-email-builder",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/mjml-output/index.js",
   "scripts": {
     "start": "NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
