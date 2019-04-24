@@ -13,7 +13,7 @@ class Image {
         css-class="ip-image-block"
         padding="${utils_1.createPadding(padding)}"
         border="${utils_1.createBorder(border)}"
-        border-radius="${border.radius}"
+        border-radius="${border.radius}px"
         ${!width.auto ? `width="${width.value}px"` : ''}
         ${!height.auto ? `height="${height.value}px"` : ''}
         href="${link.href}"
