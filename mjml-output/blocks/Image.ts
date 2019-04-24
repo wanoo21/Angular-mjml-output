@@ -12,7 +12,7 @@ export class Image implements ImageBlock, RenderingClass {
         css-class="ip-image-block"
         padding="${createPadding(padding)}"
         border="${createBorder(border)}"
-        border-radius="${border.radius}"
+        border-radius="${border.radius}px"
         ${!width.auto ? `width="${width.value}px"` : ''}
         ${!height.auto ? `height="${height.value}px"` : ''}
         href="${link.href}"
