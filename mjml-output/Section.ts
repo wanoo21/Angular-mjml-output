@@ -60,7 +60,7 @@ export class Section implements RenderingClass {
               padding="0"
               vertical-align="top"
               css-class="ip-column">
-              ${el.map(block => <string>this.getBlock(block))}
+              ${el.map(block => <string>this.getBlock(block)).join('')}
             </mj-column>
             `;
         })}

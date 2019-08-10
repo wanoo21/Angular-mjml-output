@@ -65,3 +65,7 @@ export const createWidthHeight = ({
     unit
   );
 };
+
+export function ignoreHTMLMinParse(text: string) {
+  return `<!-- htmlmin:ignore -->${text}<!-- htmlmin:ignore -->`;
+}

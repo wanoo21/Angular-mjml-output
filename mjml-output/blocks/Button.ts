@@ -3,7 +3,12 @@ import {
   ButtonBlock,
   IButtonBlockOptions
 } from '../interfaces';
-import { createBorder, createLineHeight, createPadding } from '../utils';
+import {
+  createBorder,
+  createLineHeight,
+  createPadding,
+  ignoreHTMLMinParse
+} from '../utils';
 
 export class Button implements ButtonBlock, RenderingClass {
   constructor(public innerText: string, public options: IButtonBlockOptions) {}
@@ -37,7 +42,7 @@ export class Button implements ButtonBlock, RenderingClass {
         font-size="${font.size}px"
         font-style="${font.style}"
         font-weight="${font.weight}">
-          ${this.innerText}
+          ${ignoreHTMLMinParse(this.innerText)}
       </mj-button>
     `;
   }

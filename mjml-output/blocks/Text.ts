@@ -1,5 +1,5 @@
 import { ITextBlockOptions, TextBlock, RenderingClass } from '../interfaces';
-import { createPadding, createLineHeight } from '../utils';
+import { createPadding, createLineHeight, ignoreHTMLMinParse } from '../utils';
 
 export class Text implements TextBlock, RenderingClass {
   constructor(public innerText: string, public options: ITextBlockOptions) {}
@@ -18,7 +18,7 @@ export class Text implements TextBlock, RenderingClass {
         align="left"
         line-height="${createLineHeight(lineHeight)}"
         padding="${createPadding(padding)}">
-          ${this.innerText || ''}
+          ${ignoreHTMLMinParse(this.innerText || '')}
       </mj-text>
     `;
   }
