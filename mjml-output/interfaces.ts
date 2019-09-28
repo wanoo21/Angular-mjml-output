@@ -131,6 +131,7 @@ export interface IStructureOptions {
   background: IBackground;
   padding: IPadding;
   margin: IMargin;
+  disableResponsive?: boolean;
   // direction: TDirection;
 }
 
@@ -170,6 +171,7 @@ export interface IButtonBlockOptions {
   color: string;
   font: IFont;
   align: TAlign;
+  fullWidth?: boolean;
   lineHeight: ILineHeight;
   link: ILink;
   innerPadding: IPadding;

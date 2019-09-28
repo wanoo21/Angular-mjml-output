@@ -23,10 +23,13 @@ export class Button implements ButtonBlock, RenderingClass {
       lineHeight,
       link,
       innerPadding,
-      padding
+      padding,
+      fullWidth
     } = this.options;
+
     return `
       <mj-button css-class="ip-button-block"
+        width="${fullWidth ? '100%' : 'auto'}"
         background-color="${backgroundColor}"
         border="${createBorder(border)}"
         border-radius="${border.radius}px"
