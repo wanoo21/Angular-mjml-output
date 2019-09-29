@@ -119,10 +119,13 @@ export class EmailTemplate {
             .body {
               padding: ${createPadding(general.padding)};
               background: ${createBackground(general.background)};
-              ${general.background.size &&
-                `background-size: ${createWidthHeight(
-                  general.background.size
-                )}`};
+              ${
+                general.background.size
+                  ? `background-size: ${createWidthHeight(
+                      general.background.size
+                    )}`
+                  : ''
+              };
             }
           </mj-style>
         </mj-head>
@@ -131,7 +134,9 @@ export class EmailTemplate {
           width="${createWidthHeight(general.width)}"
           background-color="${general.background.color}">
             ${structures
-              .map(structure => new Section(structure).render())
+              .map(structure =>
+                new Section(structure, general.width.value).render()
+              )
               .join('')}
         </mj-body>
       </mjml>

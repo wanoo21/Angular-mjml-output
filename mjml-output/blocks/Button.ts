@@ -29,7 +29,7 @@ export class Button implements ButtonBlock, RenderingClass {
 
     return `
       <mj-button css-class="ip-button-block"
-        width="${fullWidth ? '100%' : 'auto'}"
+        ${fullWidth ? 'width="100%"' : ''}
         background-color="${backgroundColor}"
         border="${createBorder(border)}"
         border-radius="${border.radius}px"

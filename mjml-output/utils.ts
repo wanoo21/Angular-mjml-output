@@ -69,3 +69,7 @@ export const createWidthHeight = ({
 export function ignoreHTMLMinParse(text: string) {
   return `<!-- htmlmin:ignore -->${text}<!-- htmlmin:ignore -->`;
 }
+
+export function validateGap(gaps: number) {
+  return !!(gaps % 2) ? gaps + 1 : gaps;
+}

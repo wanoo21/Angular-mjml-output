@@ -4,32 +4,36 @@ export interface RenderingClass {
 
 export abstract class TextBlock {
   readonly type?: 'text';
-  readonly icon?: string;
   constructor(public innerText: string, public options: ITextBlockOptions) {}
 }
 
 export abstract class ImageBlock {
   readonly type?: 'image';
-  readonly icon?: string;
   constructor(public src: string, public options: IImageBLockOptions) {}
 }
 
 export abstract class ButtonBlock {
   readonly type?: 'button';
-  readonly icon?: string;
   constructor(public innerText: string, public options: IButtonBlockOptions) {}
 }
 
 export abstract class DividerBlock {
   readonly type?: 'divider';
-  readonly icon?: string;
   constructor(public options: IDividerBlockOptions) {}
 }
 
 export abstract class SpacerBlock {
   readonly type?: 'spacer';
-  readonly icon?: string;
   constructor(public options: ISpacerBlockOptions) {}
+}
+
+export abstract class SocialBlock {
+  readonly type? = 'social';
+
+  constructor(
+    public networks: ISocialNetwork[],
+    public options: ISocialBlockOptions
+  ) {}
 }
 
 export type IpBlocks =
@@ -37,7 +41,8 @@ export type IpBlocks =
   | ImageBlock
   | ButtonBlock
   | DividerBlock
-  | SpacerBlock;
+  | SpacerBlock
+  | SocialBlock;
 
 export interface IForRootConf {
   ApiToken: string;
@@ -132,6 +137,7 @@ export interface IStructureOptions {
   padding: IPadding;
   margin: IMargin;
   disableResponsive?: boolean;
+  gaps?: number;
   // direction: TDirection;
 }
 
@@ -185,6 +191,40 @@ export interface IDividerBlockOptions {
 
 export interface ISpacerBlockOptions {
   height: IWidthHeight;
+}
+
+export interface ISocialBlockOptions {
+  align: TAlign;
+  mode: 'vertical' | 'horizontal';
+  font: IFont;
+  iconSize: ILineHeight;
+  lineHeight: ILineHeight;
+  color: string;
+  innerPadding: IPadding;
+  padding: IPadding;
+}
+
+export interface ISocialNetwork {
+  href: string;
+  target: string;
+  label: string;
+  name:
+    | 'github'
+    | 'instagram'
+    | 'web'
+    | 'snapchat'
+    | 'youtube'
+    | 'vimeo'
+    | 'medium'
+    | 'soundcloud'
+    | 'dribbble'
+    | 'facebook'
+    | 'twitter'
+    | 'pinterest'
+    | 'linkedin'
+    | 'tumblr'
+    | 'xing';
+  padding: IPadding;
 }
 
 export interface IGeneralOptions {

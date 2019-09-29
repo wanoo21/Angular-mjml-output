@@ -1,14 +1,9 @@
-import {
-  IStructure,
-  RenderingClass,
-  IpBlocks,
-  TStructreTypes
-} from './interfaces';
-import { Text, Image, Button, Divider, Spacer } from './blocks';
-import { createWidthHeight, createPadding } from './utils';
+import { IStructure, RenderingClass, IpBlocks } from './interfaces';
+import { Text, Image, Button, Divider, Spacer, Social } from './blocks';
+import { createWidthHeight, createPadding, validateGap } from './utils';
 
 export class Section implements RenderingClass {
-  constructor(private structure: IStructure) {}
+  constructor(private structure: IStructure, private emailWidth: number) {}
 
   private getBlock(block: IpBlocks) {
     switch (block.type) {
@@ -22,27 +17,56 @@ export class Section implements RenderingClass {
         return new Divider(block.options).render();
       case 'spacer':
         return new Spacer(block.options).render();
+      case 'social':
+        return new Social(block.networks, block.options).render();
     }
   }
 
-  private getColumnWidth(type: TStructreTypes, index: number) {
-    if (type === 'cols_12') {
+  private getColumnWidth(index: number) {
+    if (this.structure.type === 'cols_12') {
       return index === 0 ? 60 : 40;
     }
     return index === 0 ? 40 : 60;
   }
 
   private columnPadding(index: number) {
-    const columnsLength = this.structure.elements.length;
-    if (columnsLength === 1) {
+    const {
+      elements,
+      options: { gaps = 8 }
+    } = this.structure;
+
+    if (elements.length === 1) {
       return 0;
-    } else if (index === 0) {
-      return '0 4px 0 0';
-    } else if (index === columnsLength - 1) {
-      return '0 0 0 4px';
     }
-    return '0 4px';
+
+    // TODO calculate the right paddings
+    const columnsLength = elements.length;
+    const colPadding = validateGap(gaps) / 2;
+
+    if (index === 0) {
+      return `0 ${colPadding}px 0 0`;
+    } else if (index === columnsLength - 1) {
+      return `0 0 0 ${colPadding}px`;
+    }
+    return `0 ${colPadding}px`;
   }
+
+  // private columnWidth(index?: number) {
+  //   const {
+  //     elements,
+  //     options: {
+  //       gaps = 8,
+  //       padding: { right, left }
+  //     }
+  //   } = this.structure;
+  //   const columnsLength = elements.length;
+  //   // const colPadding = validateGap(gaps) / 2;
+  //   const sectionWidth = this.emailWidth - right - left;
+  //   const gapArea = validateGap(gaps) * (columnsLength - 1);
+  //   const columnWidthArea = sectionWidth - gapArea;
+
+  //   return columnWidthArea / columnsLength;
+  // }
 
   private createColumns() {
     const {
@@ -57,8 +81,8 @@ export class Section implements RenderingClass {
           <mj-column
             ${
               ['cols_12', 'cols_21'].includes(type)
-                ? `width="${this.getColumnWidth(type, index)}%"`
-                : ''
+                ? `width="${this.getColumnWidth(index)}%"`
+                : ``
             }
             padding="${this.columnPadding(index)}"
             vertical-align="top"
@@ -86,7 +110,6 @@ export class Section implements RenderingClass {
       <mj-section
         css-class="${cssClass}"
         border-radius="${options.border.radius}px"
-        vertical-align="top"
         text-align="center"
         padding="${createPadding(options.padding)}"
         background-color="${options.background.color}"
