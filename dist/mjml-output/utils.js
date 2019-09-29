@@ -25,3 +25,11 @@ exports.createWidthHeight = ({ value = 100, unit = '%', auto = false }) => {
         (['%', 'px'].includes(unit) && `${value}${unit}`) ||
         unit);
 };
+function ignoreHTMLMinParse(text) {
+    return `<!-- htmlmin:ignore -->${text}<!-- htmlmin:ignore -->`;
+}
+exports.ignoreHTMLMinParse = ignoreHTMLMinParse;
+function validateGap(gaps) {
+    return !!(gaps % 2) ? gaps + 1 : gaps;
+}
+exports.validateGap = validateGap;

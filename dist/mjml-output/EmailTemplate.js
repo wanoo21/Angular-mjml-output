@@ -1,7 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = require("fs");
+const path_1 = require("path");
 const Section_1 = require("./Section");
 const utils_1 = require("./utils");
+const styles = fs_1.readFileSync(path_1.resolve(__dirname, './styles.css'), {
+    encoding: 'utf-8'
+});
 class EmailTemplate {
     constructor(template) {
         this.template = template;
@@ -57,6 +62,7 @@ class EmailTemplate {
             font-family="Arial, Helvetica, sans-serif"
           ></mj-all>
           </mj-attributes>
+          <mj-style>${styles}</mj-style>
           <mj-style inline="inline">
             ${this.getStructuresStyles()}
             .ip-text-block p, h1, h2 {
@@ -95,8 +101,9 @@ class EmailTemplate {
             .body {
               padding: ${utils_1.createPadding(general.padding)};
               background: ${utils_1.createBackground(general.background)};
-              ${general.background.size &&
-            `background-size: ${utils_1.createWidthHeight(general.background.size)}`};
+              ${general.background.size
+            ? `background-size: ${utils_1.createWidthHeight(general.background.size)}`
+            : ''};
             }
           </mj-style>
         </mj-head>
@@ -104,7 +111,9 @@ class EmailTemplate {
           css-class="body"
           width="${utils_1.createWidthHeight(general.width)}"
           background-color="${general.background.color}">
-            ${structures.map(structure => new Section_1.Section(structure).render())}
+            ${structures
+            .map(structure => new Section_1.Section(structure, general.width.value).render())
+            .join('')}
         </mj-body>
       </mjml>
     `;

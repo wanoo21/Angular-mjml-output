@@ -20,7 +20,7 @@ class Text {
         align="left"
         line-height="${utils_1.createLineHeight(lineHeight)}"
         padding="${utils_1.createPadding(padding)}">
-          ${this.innerText || ''}
+          ${utils_1.ignoreHTMLMinParse(this.innerText || '')}
       </mj-text>
     `;
     }

@@ -33,3 +33,11 @@ class SpacerBlock {
     }
 }
 exports.SpacerBlock = SpacerBlock;
+class SocialBlock {
+    constructor(networks, options) {
+        this.networks = networks;
+        this.options = options;
+        this.type = 'social';
+    }
+}
+exports.SocialBlock = SocialBlock;

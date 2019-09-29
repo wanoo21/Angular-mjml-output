@@ -10,3 +10,5 @@ var Divider_1 = require("./Divider");
 exports.Divider = Divider_1.Divider;
 var Image_1 = require("./Image");
 exports.Image = Image_1.Image;
+var Social_1 = require("./Social");
+exports.Social = Social_1.Social;

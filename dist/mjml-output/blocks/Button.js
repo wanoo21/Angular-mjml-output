@@ -7,9 +7,10 @@ class Button {
         this.options = options;
     }
     render() {
-        const { backgroundColor, border, color, font, align, lineHeight, link, innerPadding, padding } = this.options;
+        const { backgroundColor, border, color, font, align, lineHeight, link, innerPadding, padding, fullWidth } = this.options;
         return `
       <mj-button css-class="ip-button-block"
+        ${fullWidth ? 'width="100%"' : ''}
         background-color="${backgroundColor}"
         border="${utils_1.createBorder(border)}"
         border-radius="${border.radius}px"
@@ -25,7 +26,7 @@ class Button {
         font-size="${font.size}px"
         font-style="${font.style}"
         font-weight="${font.weight}">
-          ${this.innerText}
+          ${utils_1.ignoreHTMLMinParse(this.innerText)}
       </mj-button>
     `;
     }

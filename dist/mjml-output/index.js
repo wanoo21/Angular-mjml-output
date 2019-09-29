@@ -12,13 +12,13 @@ exports.onlyMJML = onlyMJML;
 exports.default = (templateOptions, isProduction) => {
     try {
         const mjml = onlyMJML(templateOptions);
-        return Object.assign({}, mjml_1.default(mjml, {
+        return Object.assign(Object.assign({}, mjml_1.default(mjml, {
             fonts: {},
             keepComments: !isProduction,
             minify: isProduction,
             beautify: !isProduction,
             validationLevel: isProduction ? 'soft' : 'strict'
-        }), { mjml });
+        })), { mjml });
     }
     catch (error) {
         return {
