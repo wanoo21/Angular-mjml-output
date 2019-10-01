@@ -38,7 +38,7 @@ class Social {
           ${this.networks
             .map(({ name, href, label }) => `<mj-social-element
                         name="${this.getSocialNetworkName(name)}"
-                        href = "${href}" >
+                        href="${href}" >
                       ${label ? utils_1.ignoreHTMLMinParse(label) : ''}
                     </mj-social-element>`)
             .join('')}
