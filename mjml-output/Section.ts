@@ -1,9 +1,9 @@
 import { IStructure, RenderingClass, IpBlocks } from './interfaces';
 import { Text, Image, Button, Divider, Spacer, Social } from './blocks';
-import { createWidthHeight, createPadding, validateGap } from './utils';
+import { createWidthHeight, createPadding } from './utils';
 
 export class Section implements RenderingClass {
-  constructor(private structure: IStructure, private emailWidth: number) {}
+  constructor(private structure: IStructure) {}
 
   private getBlock(block: IpBlocks) {
     switch (block.type) {
@@ -29,50 +29,11 @@ export class Section implements RenderingClass {
     return index === 0 ? 40 : 60;
   }
 
-  private columnPadding(index: number) {
-    const {
-      elements,
-      options: { gaps = 8 }
-    } = this.structure;
-
-    if (elements.length === 1) {
-      return 0;
-    }
-
-    // TODO calculate the right paddings
-    const columnsLength = elements.length;
-    const colPadding = validateGap(gaps) / 2;
-
-    if (index === 0) {
-      return `0 ${colPadding}px 0 0`;
-    } else if (index === columnsLength - 1) {
-      return `0 0 0 ${colPadding}px`;
-    }
-    return `0 ${colPadding}px`;
-  }
-
-  // private columnWidth(index?: number) {
-  //   const {
-  //     elements,
-  //     options: {
-  //       gaps = 8,
-  //       padding: { right, left }
-  //     }
-  //   } = this.structure;
-  //   const columnsLength = elements.length;
-  //   // const colPadding = validateGap(gaps) / 2;
-  //   const sectionWidth = this.emailWidth - right - left;
-  //   const gapArea = validateGap(gaps) * (columnsLength - 1);
-  //   const columnWidthArea = sectionWidth - gapArea;
-
-  //   return columnWidthArea / columnsLength;
-  // }
-
   private createColumns() {
     const {
       type,
       elements,
-      options: { disableResponsive = false }
+      options: { disableResponsive = false, gaps = [4, 4] }
     } = this.structure;
 
     const columns = elements
@@ -84,7 +45,7 @@ export class Section implements RenderingClass {
                 ? `width="${this.getColumnWidth(index)}%"`
                 : ``
             }
-            padding="${this.columnPadding(index)}"
+            padding="${gaps[0]}px ${gaps[1]}px"
             vertical-align="top"
             css-class="ip-column">
             ${el.map(block => <string>this.getBlock(block)).join('')}

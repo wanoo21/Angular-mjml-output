@@ -9,9 +9,9 @@ import {
   createBorder
 } from './utils';
 
-const styles = readFileSync(resolve(__dirname, './styles.css'), {
-  encoding: 'utf-8'
-});
+// const styles = readFileSync(resolve(__dirname, './styles.css'), {
+//   encoding: 'utf-8'
+// });
 
 export class EmailTemplate {
   fontsMap = new Map();
@@ -80,7 +80,6 @@ export class EmailTemplate {
             font-family="Arial, Helvetica, sans-serif"
           ></mj-all>
           </mj-attributes>
-          <mj-style>${styles}</mj-style>
           <mj-style inline="inline">
             ${this.getStructuresStyles()}
             .ip-text-block p, h1, h2 {
@@ -134,9 +133,7 @@ export class EmailTemplate {
           width="${createWidthHeight(general.width)}"
           background-color="${general.background.color}">
             ${structures
-              .map(structure =>
-                new Section(structure, general.width.value).render()
-              )
+              .map(structure => new Section(structure).render())
               .join('')}
         </mj-body>
       </mjml>

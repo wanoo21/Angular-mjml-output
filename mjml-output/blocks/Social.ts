@@ -55,7 +55,7 @@ export class Social implements SocialBlock, RenderingClass {
             .map(
               ({ name, href, label }) => `<mj-social-element
                         name="${this.getSocialNetworkName(name)}"
-                        href = "${href}" >
+                        href="${href}" >
                       ${label ? ignoreHTMLMinParse(label) : ''}
                     </mj-social-element>`
             )
