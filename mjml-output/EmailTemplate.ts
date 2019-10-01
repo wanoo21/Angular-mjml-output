@@ -1,5 +1,5 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+// import { readFileSync } from 'fs';
+// import { resolve } from 'path';
 import { Section } from './Section';
 import { IIPDefaultEmail } from './interfaces';
 import {
