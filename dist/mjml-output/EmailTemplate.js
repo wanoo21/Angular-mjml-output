@@ -92,6 +92,9 @@ class EmailTemplate {
             .ip-text-block .ql-direction-ltr {
               direction: ltr;
             }
+            .ip-column.ip-border-radius table {
+              border-collapse: separate !important;
+            }
             .body {
               padding: ${utils_1.createPadding(general.padding)};
               background: ${utils_1.createBackground(general.background)};

@@ -2,6 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const blocks_1 = require("./blocks");
 const utils_1 = require("./utils");
+const defaultColumnsOptions = {
+    background: {
+        color: '#cccccc'
+    },
+    border: {
+        width: 0,
+        color: '#cccccc',
+        radius: 0,
+        style: 'solid'
+    },
+    verticalAlign: 'top'
+};
 class Section {
     constructor(structure) {
         this.structure = structure;
@@ -29,26 +41,30 @@ class Section {
         return index === 0 ? 40 : 60;
     }
     createColumns() {
-        const { type, elements, options: { disableResponsive = false, gaps = [4, 4] } } = this.structure;
-        const columns = elements
+        const { type, elements, options: { disableResponsive = false, gaps = [4, 4], columns = [] } } = this.structure;
+        const columnsElements = elements
             .map((el, index) => {
+            const column = (columns && columns[index]) || defaultColumnsOptions;
             return `
           <mj-column
             ${['cols_12', 'cols_21'].includes(type)
                 ? `width="${this.getColumnWidth(index)}%"`
                 : ``}
+            background-color="${column.background.color}"
             padding="${gaps[0]}px ${gaps[1]}px"
-            vertical-align="top"
-            css-class="ip-column">
+            border="${utils_1.createBorder(column.border)}"
+            border-radius="${column.border.radius || 0}px"
+            vertical-align="${column.verticalAlign}"
+            css-class="ip-column ${(column.border.radius || 0) > 0 ? 'ip-border-radius' : ''}">
             ${el.map(block => this.getBlock(block)).join('')}
           </mj-column>
         `;
         })
             .join('');
         if (disableResponsive) {
-            return `<mj-group>${columns}</mj-group>`;
+            return `<mj-group>${columnsElements}</mj-group>`;
         }
-        return columns;
+        return columnsElements;
     }
     render() {
         const { type, id, options } = this.structure;
