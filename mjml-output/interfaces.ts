@@ -59,6 +59,7 @@ export type TStructreTypes =
 export type TDirection = 'ltr' | 'rtl' | 'inherit';
 export type TUnits = '%' | 'px' | 'cover' | 'contain';
 export type TAlign = 'left' | 'center' | 'right';
+export type TVerticalAlign = 'top' | 'middle' | 'bottom';
 export type TLineHeight = '%' | 'px' | 'none';
 export type TLinkTarget = '_blank' | '_self' | '_parent' | '_top';
 export type TFontStyle = 'italic' | 'normal' | 'oblique';
@@ -131,14 +132,21 @@ export interface ILink {
   target: TLinkTarget;
 }
 
+export interface IStructureColumnOptions {
+  background: IBackground;
+  border: IBorder;
+  verticalAlign: TVerticalAlign;
+}
+
 export interface IStructureOptions {
   border: IBorder;
   background: IBackground;
   padding: IPadding;
   margin: IMargin;
-  disableResponsive?: boolean;
-  gaps?: number;
-  // direction: TDirection;
+  disableResponsive: boolean;
+  gaps: [number, number];
+  columnsWidth: number[];
+  columns: IStructureColumnOptions[];
 }
 
 export interface IStructure {

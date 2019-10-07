@@ -1,6 +1,24 @@
-import { IStructure, RenderingClass, IpBlocks } from './interfaces';
+import {
+  IStructure,
+  RenderingClass,
+  IpBlocks,
+  IStructureColumnOptions
+} from './interfaces';
 import { Text, Image, Button, Divider, Spacer, Social } from './blocks';
-import { createWidthHeight, createPadding } from './utils';
+import { createWidthHeight, createPadding, createBorder } from './utils';
+
+const defaultColumnsOptions: IStructureColumnOptions = {
+  background: {
+    color: '#cccccc'
+  },
+  border: {
+    width: 0,
+    color: '#cccccc',
+    radius: 0,
+    style: 'solid'
+  },
+  verticalAlign: 'top'
+};
 
 export class Section implements RenderingClass {
   constructor(private structure: IStructure) {}
@@ -33,11 +51,12 @@ export class Section implements RenderingClass {
     const {
       type,
       elements,
-      options: { disableResponsive = false, gaps = [4, 4] }
+      options: { disableResponsive = false, gaps = [4, 4], columns = [] }
     } = this.structure;
 
-    const columns = elements
+    const columnsElements = elements
       .map((el, index) => {
+        const column = (columns && columns[index]) || defaultColumnsOptions;
         return `
           <mj-column
             ${
@@ -45,20 +64,25 @@ export class Section implements RenderingClass {
                 ? `width="${this.getColumnWidth(index)}%"`
                 : ``
             }
+            background-color="${column.background.color}"
             padding="${gaps[0]}px ${gaps[1]}px"
-            vertical-align="top"
-            css-class="ip-column">
-            ${el.map(block => <string>this.getBlock(block)).join('')}
+            border="${createBorder(column.border)}"
+            border-radius="${column.border.radius || 0}px"
+            vertical-align="${column.verticalAlign}"
+            css-class="ip-column ${
+              (column.border.radius || 0) > 0 ? 'ip-border-radius' : ''
+            }">
+            ${el.map(block => this.getBlock(block)).join('')}
           </mj-column>
         `;
       })
       .join('');
 
     if (disableResponsive) {
-      return `<mj-group>${columns}</mj-group>`;
+      return `<mj-group>${columnsElements}</mj-group>`;
     }
 
-    return columns;
+    return columnsElements;
   }
 
   render() {
