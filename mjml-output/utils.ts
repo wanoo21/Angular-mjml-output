@@ -86,7 +86,7 @@ export function defaultStructureColumnsWidth(type: TStructreTypes) {
   } else if (type === 'cols_3') {
     columnsWidth = [3.33, 3.33, 3.33];
   } else if (type === 'cols_4') {
-    columnsWidth = [3, 3, 3, 3];
+    columnsWidth = [2.5, 2.5, 2.5, 2.5];
   }
   return columnsWidth;
 }

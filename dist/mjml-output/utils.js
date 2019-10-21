@@ -33,3 +33,23 @@ function validateGap(gaps) {
     return !!(gaps % 2) ? gaps + 1 : gaps;
 }
 exports.validateGap = validateGap;
+function defaultStructureColumnsWidth(type) {
+    let columnsWidth = [1];
+    if (type === 'cols_21') {
+        columnsWidth = [4, 6];
+    }
+    else if (type === 'cols_12') {
+        columnsWidth = [6, 4];
+    }
+    else if (type === 'cols_2') {
+        columnsWidth = [5, 5];
+    }
+    else if (type === 'cols_3') {
+        columnsWidth = [3.33, 3.33, 3.33];
+    }
+    else if (type === 'cols_4') {
+        columnsWidth = [2.5, 2.5, 2.5, 2.5];
+    }
+    return columnsWidth;
+}
+exports.defaultStructureColumnsWidth = defaultStructureColumnsWidth;

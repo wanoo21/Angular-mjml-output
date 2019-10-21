@@ -35,21 +35,19 @@ class Section {
         }
     }
     getColumnWidth(index) {
-        if (this.structure.type === 'cols_12') {
-            return index === 0 ? 60 : 40;
-        }
-        return index === 0 ? 40 : 60;
+        const { columnsWidth = utils_1.defaultStructureColumnsWidth(this.structure.type) } = this.structure.options;
+        const fullWidth = columnsWidth.reduce((n, fr) => n + fr, 0);
+        const colFr = columnsWidth[index];
+        return Math.round((100 * colFr) / fullWidth);
     }
     createColumns() {
-        const { type, elements, options: { disableResponsive = false, gaps = [4, 4], columns = [] } } = this.structure;
+        const { elements, options: { disableResponsive = false, gaps = [4, 4], columns = [] } } = this.structure;
         const columnsElements = elements
             .map((el, index) => {
             const column = (columns && columns[index]) || defaultColumnsOptions;
             return `
           <mj-column
-            ${['cols_12', 'cols_21'].includes(type)
-                ? `width="${this.getColumnWidth(index)}%"`
-                : ``}
+            width="${this.getColumnWidth(index)}%"
             background-color="${column.background.color}"
             padding="${gaps[0]}px ${gaps[1]}px"
             border="${utils_1.createBorder(column.border)}"
