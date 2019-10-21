@@ -5,7 +5,12 @@ import {
   IStructureColumnOptions
 } from './interfaces';
 import { Text, Image, Button, Divider, Spacer, Social } from './blocks';
-import { createWidthHeight, createPadding, createBorder } from './utils';
+import {
+  createWidthHeight,
+  createPadding,
+  createBorder,
+  defaultStructureColumnsWidth
+} from './utils';
 
 const defaultColumnsOptions: IStructureColumnOptions = {
   background: {
@@ -41,15 +46,16 @@ export class Section implements RenderingClass {
   }
 
   private getColumnWidth(index: number) {
-    if (this.structure.type === 'cols_12') {
-      return index === 0 ? 60 : 40;
-    }
-    return index === 0 ? 40 : 60;
+    const {
+      columnsWidth = defaultStructureColumnsWidth(this.structure.type)
+    } = this.structure.options;
+    const fullWidth = columnsWidth.reduce((n, fr) => n + fr, 0);
+    const colFr = columnsWidth[index];
+    return Math.round((100 * colFr) / fullWidth);
   }
 
   private createColumns() {
     const {
-      type,
       elements,
       options: { disableResponsive = false, gaps = [4, 4], columns = [] }
     } = this.structure;
@@ -59,11 +65,7 @@ export class Section implements RenderingClass {
         const column = (columns && columns[index]) || defaultColumnsOptions;
         return `
           <mj-column
-            ${
-              ['cols_12', 'cols_21'].includes(type)
-                ? `width="${this.getColumnWidth(index)}%"`
-                : ``
-            }
+            width="${this.getColumnWidth(index)}%"
             background-color="${column.background.color}"
             padding="${gaps[0]}px ${gaps[1]}px"
             border="${createBorder(column.border)}"

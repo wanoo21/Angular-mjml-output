@@ -4,7 +4,8 @@ import {
   IBorder,
   ILineHeight,
   IWidthHeight,
-  IBackground
+  IBackground,
+  TStructreTypes
 } from './interfaces';
 
 export const createBorder = ({
@@ -72,4 +73,20 @@ export function ignoreHTMLMinParse(text: string) {
 
 export function validateGap(gaps: number) {
   return !!(gaps % 2) ? gaps + 1 : gaps;
+}
+
+export function defaultStructureColumnsWidth(type: TStructreTypes) {
+  let columnsWidth = [1];
+  if (type === 'cols_21') {
+    columnsWidth = [4, 6];
+  } else if (type === 'cols_12') {
+    columnsWidth = [6, 4];
+  } else if (type === 'cols_2') {
+    columnsWidth = [5, 5];
+  } else if (type === 'cols_3') {
+    columnsWidth = [3.33, 3.33, 3.33];
+  } else if (type === 'cols_4') {
+    columnsWidth = [3, 3, 3, 3];
+  }
+  return columnsWidth;
 }
