@@ -48,6 +48,7 @@ class EmailTemplate {
         return `
       <mjml>
         <mj-head>
+        <mj-title>${general.name}</mj-title>
         <mj-preview>${general.previewText}</mj-preview>
         ${this.getUsedFonts()}
         <mj-attributes>
@@ -59,14 +60,27 @@ class EmailTemplate {
           </mj-attributes>
           <mj-style inline="inline">
             ${this.getStructuresStyles()}
-            .ip-text-block p, h1, h2 {
+            .ip-text-block p, h1, h2, h3, h4, h5, h6 {
               margin: 0;
             }
             .ip-text-block h1 {
               font-size: 2em;
             }
-            .ip-text-block h2, .ql-size-large {
+            .ip-text-block h2,
+            .ql-size-large {
               font-size: 1.5em;
+            }
+            .ip-text-block h3 {
+              font-size: 1.17em;
+            }
+            .ip-text-block h4 {
+              font-size: 1em;
+            }
+            .ip-text-block h5 {
+              font-size: 0.83em;
+            }
+            .ip-text-block h6 {
+              font-size: 0.67em;
             }
             .ip-text-block .ql-size-small {
               font-size: 0.75em;
@@ -98,9 +112,7 @@ class EmailTemplate {
             .body {
               padding: ${utils_1.createPadding(general.padding)};
               background: ${utils_1.createBackground(general.background)};
-              ${general.background.size
-            ? `background-size: ${utils_1.createWidthHeight(general.background.size)}`
-            : ''};
+              ${general.background.size ? `background-size: ${utils_1.createWidthHeight(general.background.size)}` : ''};
             }
           </mj-style>
         </mj-head>
@@ -108,9 +120,7 @@ class EmailTemplate {
           css-class="body"
           width="${utils_1.createWidthHeight(general.width)}"
           background-color="${general.background.color}">
-            ${structures
-            .map(structure => new Section_1.Section(structure).render())
-            .join('')}
+            ${structures.map(structure => new Section_1.Section(structure).render()).join('')}
         </mj-body>
       </mjml>
     `;
