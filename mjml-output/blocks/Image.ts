@@ -2,7 +2,7 @@ import { RenderingClass, ImageBlock, IImageBLockOptions } from '../interfaces';
 import { createPadding, createBorder } from '../utils';
 
 export class Image implements ImageBlock, RenderingClass {
-  constructor(public src: string, public options: IImageBLockOptions) {}
+  constructor(public src: string, public options: IImageBLockOptions) { }
 
   render() {
     const { border, width, height, link, align, title, padding } = this.options;

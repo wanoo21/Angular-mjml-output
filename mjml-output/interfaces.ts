@@ -4,36 +4,36 @@ export interface RenderingClass {
 
 export abstract class TextBlock {
   readonly type?: 'text';
-  constructor(public innerText: string, public options: ITextBlockOptions) {}
+  constructor(public innerText: string, public options: ITextBlockOptions) { }
 }
 
 export abstract class ImageBlock {
   readonly type?: 'image';
-  constructor(public src: string, public options: IImageBLockOptions) {}
+  constructor(public src: string, public options: IImageBLockOptions) { }
 }
 
 export abstract class ButtonBlock {
   readonly type?: 'button';
-  constructor(public innerText: string, public options: IButtonBlockOptions) {}
+  constructor(public innerText: string, public options: IButtonBlockOptions) { }
 }
 
 export abstract class DividerBlock {
   readonly type?: 'divider';
-  constructor(public options: IDividerBlockOptions) {}
+  constructor(public options: IDividerBlockOptions) { }
 }
 
 export abstract class SpacerBlock {
   readonly type?: 'spacer';
-  constructor(public options: ISpacerBlockOptions) {}
+  constructor(public options: ISpacerBlockOptions) { }
 }
 
 export abstract class SocialBlock {
-  readonly type? = 'social';
+  readonly type?= 'social';
 
   constructor(
     public networks: ISocialNetwork[],
     public options: ISocialBlockOptions
-  ) {}
+  ) { }
 }
 
 export type IpBlocks =
@@ -217,21 +217,21 @@ export interface ISocialNetwork {
   target: string;
   label: string;
   name:
-    | 'github'
-    | 'instagram'
-    | 'web'
-    | 'snapchat'
-    | 'youtube'
-    | 'vimeo'
-    | 'medium'
-    | 'soundcloud'
-    | 'dribbble'
-    | 'facebook'
-    | 'twitter'
-    | 'pinterest'
-    | 'linkedin'
-    | 'tumblr'
-    | 'xing';
+  | 'github'
+  | 'instagram'
+  | 'web'
+  | 'snapchat'
+  | 'youtube'
+  | 'vimeo'
+  | 'medium'
+  | 'soundcloud'
+  | 'dribbble'
+  | 'facebook'
+  | 'twitter'
+  | 'pinterest'
+  | 'linkedin'
+  | 'tumblr'
+  | 'xing';
   padding: IPadding;
 }
 
@@ -241,6 +241,7 @@ export interface IGeneralOptions {
   padding: IPadding;
   direction: TDirection;
   previewText: string;
+  name?: string;
   global: {
     fonts: string[];
     padding: IPadding;
