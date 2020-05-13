@@ -1,8 +1,11 @@
+import { createReadStream, existsSync } from 'fs';
 import express from 'express';
 import cors from 'cors';
 import { json, urlencoded } from 'body-parser';
 import { Request, Response } from 'express';
 import { IIPDefaultEmail } from 'mjml-output/interfaces';
+
+import { getDirectoriesNames, getFilePathByType } from './utils';
 import mjmlOutput, { onlyMJML } from './mjml-output';
 
 const { NODE_ENV, PORT } = process.env;
@@ -38,6 +41,37 @@ app.post('/mjml', (req: Request, res: Response) => {
 
 app.get('/ping', (req: Request, res: Response) => {
   res.send('PONG');
+});
+
+app.get('/templates/:category/images/:img', (req: Request, res: Response) => {
+  const { category, img } = req.params
+  try {
+    const [templateFolder] = getDirectoriesNames(`./templates/${category}`).filter(
+      templateFolder => getFilePathByType(`./templates/${category}/${templateFolder}/images`, img)
+    )
+    if (!templateFolder || !existsSync(`./templates/${category}/${templateFolder}/images/${img}`)) {
+      throw new Error('Template not found.')
+    }
+    createReadStream(`./templates/${category}/${templateFolder}/images/${img}`).pipe(res)
+  } catch (error) {
+    console.log(error);
+    res.status(404).end()
+  }
+});
+
+app.get('/templates', (req: Request, res: Response) => {
+  createReadStream('./templates/templates.json').pipe(res)
+});
+
+app.get('/templates/:category/:name', (req: Request, res: Response) => {
+  const { category, name } = req.params
+  const { type = 'json' } = req.query
+  try {
+    const file = getFilePathByType(`./templates/${category}/${name}`, `.${type}`)
+    createReadStream(file).pipe(res)
+  } catch (error) {
+    res.json({ error: 'Template not found.' })
+  }
 });
 
 app.listen(app.get('port'), '0.0.0.0', () => {

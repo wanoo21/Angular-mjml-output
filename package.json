@@ -7,7 +7,10 @@
     "start": "NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
     "copy": "copyfiles -u 1 ./mjml-output/*.css ./dist/mjml-output",
-    "build": "rimraf dist && tsc && yarn copy"
+    "build": "rimraf dist && tsc && yarn copy",
+    "template-json": "ts-node generate-template-json.ts",
+    "template-thumbnails": "ts-node generate-thumbnails.ts",
+    "template-thumb:json": "npm run template-json && npm run template-thumbnails"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,8 @@
     "express": "^4.16.3",
     "lodash": "^4.17.10",
     "mjml": "^4.5.1",
-    "ts-node": "^7.0.1"
+    "ts-node": "^7.0.1",
+    "webshot": "^0.18.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
