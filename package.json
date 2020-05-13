@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
-    "copy": "copyfiles -u 1 ./mjml-output/*.css ./dist/mjml-output",
+    "copy": "copyfiles ./templates/**/**/* ./mjml-output/*.css ./dist",
     "build": "rimraf dist && tsc && yarn copy",
     "template-json": "ts-node generate-template-json.ts",
     "template-thumbnails": "ts-node generate-thumbnails.ts",

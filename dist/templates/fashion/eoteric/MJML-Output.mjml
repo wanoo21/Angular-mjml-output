@@ -1,0 +1,813 @@
+
+      <mjml>
+        <mj-head>
+        <mj-title></mj-title>
+        <mj-preview></mj-preview>
+        <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" />
+        <mj-attributes>
+          <mj-all
+            padding="0px 0px 0px 0px"
+            direction="ltr"
+            font-family="Arial, Helvetica, sans-serif"
+          ></mj-all>
+          </mj-attributes>
+          <mj-style inline="inline">
+            .1588435472386 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588437736969 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588436572845 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588439373776 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588439111585 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588439220984 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588438120582 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588439484632 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588440329581 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588440686864 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588440816504 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }.1588435441698 {
+          margin-top: 0px !important;
+          margin-bottom: 0px !important;
+          border: 0px solid #cccccc;
+        }
+            .ip-text-block p, h1, h2, h3, h4, h5, h6 {
+              margin: 0;
+            }
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+              font-weight: inherit;
+              line-height: inherit;
+            }
+            .ip-text-block h1 {
+              font-size: 2em;
+            }
+            .ip-text-block h2,
+            .ql-size-large {
+              font-size: 1.5em;
+            }
+            .ip-text-block h3 {
+              font-size: 1.17em;
+            }
+            .ip-text-block h4 {
+              font-size: 1em;
+            }
+            .ip-text-block h5 {
+              font-size: 0.83em;
+            }
+            .ip-text-block h6 {
+              font-size: 0.67em;
+            }
+            .ip-text-block .ql-size-small {
+              font-size: 0.75em;
+            }
+            .ip-text-block .ql-size-huge {
+              font-size: 2.5em;
+            }
+            .ip-text-block .ql-align-left {
+              text-align: left;
+            }
+            .ip-text-block .ql-align-center {
+              text-align: center;
+            }
+            .ip-text-block .ql-align-right {
+              text-align: right;
+            }
+            .ip-text-block .ql-align-justify {
+              text-align: justify;
+            }
+            .ip-text-block .ql-direction-rtl {
+              direction: rtl;
+            }
+            .ip-text-block .ql-direction-ltr {
+              direction: ltr;
+            }
+            .ip-column.ip-border-radius table {
+              border-collapse: separate !important;
+            }
+            .body {
+              padding: 16px 10px 10px 10px;
+              background: #451568 ;
+              background-size: auto;
+            }
+          </mj-style>
+        </mj-head>
+        <mj-body
+          css-class="body"
+          width="600px"
+          background-color="#451568">
+            
+      <mj-section
+        css-class="cols_1 1588435472386 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="20px 0px 10px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        width="179px"
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=http://listen-2-me.com/a2020/cpemail/fashion-logo.png>
+      </mj-image>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588437736969 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-divider
+        css-class="ip-divider-block"
+        border-color="#cccccc"
+        border-style="solid"
+        border-width="1px"
+        padding="10px 0px 10px 0px">
+      </mj-divider>
+    
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Comic Sans MS, cursive, sans-serif"
+        font-size="24px"
+        font-style="normal"
+        font-weight="700"
+        text-decoration="none"
+        align="left"
+        line-height="28px"
+        padding="0px 25px 0px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">Neoteric Fashion Products</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-divider
+        css-class="ip-divider-block"
+        border-color="#cccccc"
+        border-style="solid"
+        border-width="1px"
+        padding="10px 0px 10px 0px">
+      </mj-divider>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588436572845 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="0px 0px 0px 0px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="0px 0px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=http://listen-2-me.com/a2020/cpemail/fashion-banner.jpg>
+      </mj-image>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588439373776 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="0px 0px 0px 0px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="#02a9f4"
+            padding="0px 0px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-text
+        css-class="ip-text-block"
+        color="#ffffff"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="22px"
+        font-style="normal"
+        font-weight="700"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="20px 25px 20px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">Get Your Best Deal Here!</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_3 1588439111585 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="8px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="33%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+          <mj-column
+            width="33%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/1007052/pexels-photo-1007052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940>
+      </mj-image>
+    
+          </mj-column>
+        
+          <mj-column
+            width="33%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_2 1588439220984 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 8px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="50%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+          <mj-column
+            width="50%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href="#"
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/1158670/pexels-photo-1158670.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588438120582 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="0px 0px 0px 0px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="#02a9f4"
+            padding="0px 0px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-text
+        css-class="ip-text-block"
+        color="#ffffff"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="22px"
+        font-style="normal"
+        font-weight="700"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="20px 25px 20px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">Summer Fashion Products</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_2 1588439484632 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="8px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="50%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href=""
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/1557843/pexels-photo-1557843.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+          <mj-column
+            width="50%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="16px"
+        font-style="normal"
+        font-weight="700"
+        text-decoration="none"
+        align="left"
+        line-height="40px"
+        padding="30px 25px 0px 25px">
+          <!-- htmlmin:ignore --><p>Summer Fashion Wish List</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="14px"
+        font-style="normal"
+        font-weight="400"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="10px 25px 10px 25px">
+          <!-- htmlmin:ignore --><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="14px"
+        font-style="normal"
+        font-weight="400"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="10px 25px 10px 25px">
+          <!-- htmlmin:ignore --><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="14px"
+        font-style="normal"
+        font-weight="400"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="10px 25px 10px 25px">
+          <!-- htmlmin:ignore --><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-button css-class="ip-button-block"
+        
+        background-color="#451568"
+        border="0px solid #414141"
+        border-radius="3px"
+        color="#ffffff"
+        align="center"
+        vertical-align="middle"
+        line-height="120%"
+        href="#"
+        target="_blank"
+        padding="30px 25px 10px 25px"
+        inner-padding="10px 25px 10px 25px"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="13px"
+        font-style="normal"
+        font-weight="400">
+          <!-- htmlmin:ignore -->SHOP SUMMER NOW <!-- htmlmin:ignore -->
+      </mj-button>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588440329581 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-image
+        css-class="ip-image-block"
+        padding="0px 0px 0px 0px"
+        border="0px solid #cccccc"
+        border-radius="0px"
+        
+        
+        href=""
+        target="_blank"
+        align="center"
+        title=""
+        alt=""
+        src=https://images.pexels.com/photos/1006994/pexels-photo-1006994.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>
+      </mj-image>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588440686864 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-text
+        css-class="ip-text-block"
+        color="#000000"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="30px"
+        font-style="normal"
+        font-weight="700"
+        text-decoration="none"
+        align="left"
+        line-height="32px"
+        padding="10px 25px 10px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">EXCLUSIVE OFFER</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588440816504 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="4px 4px 4px 4px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="transparent"
+            padding="4px 4px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-button css-class="ip-button-block"
+        
+        background-color="#451568"
+        border="0px solid #414141"
+        border-radius="3px"
+        color="#ffffff"
+        align="center"
+        vertical-align="middle"
+        line-height="120%"
+        href="#"
+        target="_blank"
+        padding="0px 25px 10px 25px"
+        inner-padding="10px 25px 10px 25px"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="13px"
+        font-style="normal"
+        font-weight="400">
+          <!-- htmlmin:ignore -->SHOP NOW<!-- htmlmin:ignore -->
+      </mj-button>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+      <mj-section
+        css-class="cols_1 1588435441698 ip-section"
+        border-radius="0px"
+        text-align="center"
+        padding="20px 0px 0px 0px"
+        background-color="#ffffff"
+        background-url=""
+        background-repeat="repeat"
+        background-size="auto">
+        
+          <mj-column
+            width="100%"
+            background-color="#ef314c"
+            padding="0px 0px"
+            border="0px solid #cccccc"
+            border-radius="0px"
+            vertical-align="top"
+            css-class="ip-column ">
+            
+      <mj-text
+        css-class="ip-text-block"
+        color="#ffffff"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="20px"
+        font-style="normal"
+        font-weight="400"
+        text-decoration="none"
+        align="left"
+        line-height="40px"
+        padding="10px 25px 0px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">Email Marketing for Fashion Accessories Store</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-text
+        css-class="ip-text-block"
+        color="#ffffff"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="14px"
+        font-style="normal"
+        font-weight="400"
+        text-decoration="none"
+        align="left"
+        line-height="20px"
+        padding="5px 25px 20px 25px">
+          <!-- htmlmin:ignore --><p class="ql-align-center">45 Shirley Ave</p><p class="ql-align-center">West Chicago, 65873</p><!-- htmlmin:ignore -->
+      </mj-text>
+    
+      <mj-social
+        color="#333333"
+        align="center"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="16px"
+        font-style="normal"
+        font-weight="400"
+        icon-size="30px"
+        line-height="16px"
+        inner-padding="4px 4px 4px 4px"
+        padding="0px 25px 20px 25px"
+        mode="horizontal">
+          <mj-social-element
+                        name="facebook-noshare"
+                        href="#" >
+                      
+                    </mj-social-element><mj-social-element
+                        name="twitter-noshare"
+                        href="#" >
+                      
+                    </mj-social-element><mj-social-element
+                        name="pinterest-noshare"
+                        href="#" >
+                      
+                    </mj-social-element><mj-social-element
+                        name="youtube"
+                        href="#" >
+                      
+                    </mj-social-element>
+      </mj-social>
+    
+          </mj-column>
+        
+      </mj-section>
+      
+        </mj-body>
+      </mjml>
+    
