@@ -38,19 +38,13 @@ async function isWritableOrCreate(folder: string) {
 }
 
 async function generateThumbnail(category: string, template: string) {
-  const thumbName = path.join(THUMB_FOLDER, `${category}-${template}.jpg`)
-  // Don't generate existing thumbnails
-  if (fs.existsSync(thumbName)) {
-    // console.log(` > Skipping ${category}/${template}`)
-    return Promise.resolve()
-  }
   console.log(` > Creating ${category}/${template}`)
   const mjml = fs.readFileSync(
     getFilePathByType(path.join(TEMPLATES_FOLDER, category, template), '.mjml'),
     { encoding: 'utf-8' }
   )
   const html = await getHTML(mjml);
-  await shot(thumbName, html)
+  await Promise.all([shot(category, template, html), /** shot(category, template, html, true) */])
 }
 
 function getHTML(mjml: string): Promise<string> {
@@ -64,9 +58,17 @@ function getHTML(mjml: string): Promise<string> {
   })
 }
 
-function shot(name: string, html: string) {
+function shot(category: string, template: string, html: string, small = false) {
+  const thumbName = path.join(THUMB_FOLDER, `${category}/${template}/${!small ? template : `${template}x300`}.jpg`)
+
+  // Don't generate existing thumbnails
+  if (fs.existsSync(thumbName)) {
+    return Promise.resolve()
+  }
   return new Promise((resolve, reject) => {
-    webshot(html, name, WEBSHOT_OPTIONS, (err: Error) => {
+    webshot(html, thumbName, {
+      ...WEBSHOT_OPTIONS, ...(small && { screenSize: { width: 300 }, shotSize: { width: 300 } })
+    }, (err: Error) => {
       if (err) { return reject(err) }
       resolve()
     })
@@ -78,14 +80,13 @@ function shot(name: string, html: string) {
 
     await isWritableOrCreate(THUMB_FOLDER)
 
-    // console.log('>> Reading templates')
-    // const templatesWithContent = await Promise.all(templates.map(readContent))
-
     console.log('>> Generating thumbnails')
-    await categories.reduce((promise, { templates, category }) => {
-      return promise.then(() => templates.reduce((promise2, template) => {
-        return promise2.then(() => generateThumbnail(category, template))
-      }, Promise.resolve()))
+    await categories.reduce(async (promise, { templates, category }) => {
+      await promise
+      return await templates.reduce(async (promise2, template) => {
+        await promise2
+        return await generateThumbnail(category, template)
+      }, Promise.resolve())
     }, Promise.resolve())
 
   } catch (err) {
