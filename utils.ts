@@ -1,3 +1,4 @@
+import { join } from 'path'
 import { readdirSync } from 'fs'
 
 export function getDirectoriesNames(directory: string) {
@@ -10,4 +11,8 @@ export function getFilePathByType(directory: string, type: string) {
     return file.isFile() && file.name.endsWith(type)
   }).map(({ name }) => name)
   return `${directory}/${file}`
+}
+
+export function getEmailJSON(category: string, template: string) {
+  return getFilePathByType(join(__dirname, 'templates', category, template), '.json');
 }
