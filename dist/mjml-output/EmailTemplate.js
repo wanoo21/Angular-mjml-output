@@ -27,7 +27,7 @@ class EmailTemplate {
                 });
             });
         });
-        return [...usedFonts].map(family => {
+        return [...usedFonts].filter(Boolean).map(family => {
             const font = parsedFonts.get(family);
             return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
         });

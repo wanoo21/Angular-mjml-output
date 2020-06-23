@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = require("path");
 const fs_1 = require("fs");
 function getDirectoriesNames(directory) {
     return fs_1.readdirSync(directory, { withFileTypes: true })
@@ -13,3 +14,7 @@ function getFilePathByType(directory, type) {
     return `${directory}/${file}`;
 }
 exports.getFilePathByType = getFilePathByType;
+function getEmailJSON(category, template) {
+    return getFilePathByType(path_1.join(__dirname, 'templates', category, template), '.json');
+}
+exports.getEmailJSON = getEmailJSON;
