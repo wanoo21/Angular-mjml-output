@@ -16,3 +16,7 @@ export function getFilePathByType(directory: string, type: string) {
 export function getEmailJSON(category: string, template: string) {
   return require(getFilePathByType(join(__dirname, 'templates', category, template), '.json'));
 }
+
+export function getAllTemplatesAsJSON() {
+  return require(getFilePathByType(join(__dirname, 'templates'), '.json'));
+}
