@@ -14,12 +14,13 @@ import {
 // });
 
 export class EmailTemplate {
-  fontsMap = new Map();
-  constructor(private template: IIPDefaultEmail) { }
+  // fontsMap = new Map();
+  constructor(private template: IIPDefaultEmail, private googleFonts: string[]) { }
 
   private getUsedFonts() {
     const {
       general: {
+        // Keep support for old templates
         global: { fonts }
       },
       structures
@@ -27,7 +28,7 @@ export class EmailTemplate {
     const usedFonts = new Set();
     const parsedFonts = new Map();
 
-    fonts.forEach(font => {
+    (this.googleFonts || fonts || []).forEach(font => {
       const match = font.match(/[^\d:,]{2,}/g);
       if (match) {
         const [family] = match;
@@ -47,10 +48,11 @@ export class EmailTemplate {
       });
     });
 
-    return [...usedFonts].filter(Boolean).map(family => {
+    return [...usedFonts].map(family => {
       const font = parsedFonts.get(family);
+      if (!font) return null;
       return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
-    });
+    }).filter(Boolean);
   }
 
   private getStructuresStyles() {

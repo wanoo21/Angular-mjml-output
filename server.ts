@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import { json, urlencoded } from 'body-parser';
 import { Request, Response } from 'express';
-import { IIPDefaultEmail } from 'mjml-output/interfaces';
 
 import { getDirectoriesNames, getFilePathByType } from './utils';
 import mjmlOutput, { onlyMJML } from './mjml-output';
@@ -25,17 +24,19 @@ app.set('isProduction', isProduction);
 
 app.post('/', (req: Request, res: Response) => {
   // Check api key, just to emulate AWS forbiddden response
-  const apiKey = req.get('x-api-key');
-  if (!apiKey) {
-    res.status(403).end();
-  } else {
-    const output = mjmlOutput(<IIPDefaultEmail>req.body, isProduction);
-    res.json(output);
-  }
+  // const apiKey = req.get('x-api-key');
+  // if (!apiKey) {
+  //   res.status(403).end();
+  // } else {
+  const { email, googleFonts } = req.body;
+  const output = mjmlOutput([email, googleFonts], isProduction);
+  res.json(output);
+  // }
 });
 
 app.post('/mjml', (req: Request, res: Response) => {
-  const mjml = onlyMJML(<IIPDefaultEmail>req.body);
+  const { email, googleFonts } = req.body;
+  const mjml = onlyMJML(email, googleFonts);
   res.json({ mjml });
 });
 

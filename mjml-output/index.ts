@@ -2,13 +2,13 @@ import mjml2html from 'mjml';
 import { EmailTemplate } from './EmailTemplate';
 import { IIPDefaultEmail } from './interfaces';
 
-export function onlyMJML(templateOptions: IIPDefaultEmail) {
-  return new EmailTemplate(templateOptions).render();
+export function onlyMJML(...args: [IIPDefaultEmail, string[]]) {
+  return new EmailTemplate(...args).render();
 }
 
-export default (templateOptions: IIPDefaultEmail, isProduction: boolean) => {
+export default (data: [IIPDefaultEmail, string[]], isProduction: boolean) => {
   try {
-    const mjml = onlyMJML(templateOptions);
+    const mjml = onlyMJML(...data);
     return {
       ...mjml2html(mjml, {
         fonts: {},

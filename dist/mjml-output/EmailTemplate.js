@@ -3,15 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Section_1 = require("./Section");
 const utils_1 = require("./utils");
 class EmailTemplate {
-    constructor(template) {
+    constructor(template, googleFonts) {
         this.template = template;
-        this.fontsMap = new Map();
+        this.googleFonts = googleFonts;
     }
     getUsedFonts() {
         const { general: { global: { fonts } }, structures } = this.template;
         const usedFonts = new Set();
         const parsedFonts = new Map();
-        fonts.forEach(font => {
+        (this.googleFonts || fonts || []).forEach(font => {
             const match = font.match(/[^\d:,]{2,}/g);
             if (match) {
                 const [family] = match;
@@ -27,10 +27,12 @@ class EmailTemplate {
                 });
             });
         });
-        return [...usedFonts].filter(Boolean).map(family => {
+        return [...usedFonts].map(family => {
             const font = parsedFonts.get(family);
+            if (!font)
+                return null;
             return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
-        });
+        }).filter(Boolean);
     }
     getStructuresStyles() {
         return this.template.structures

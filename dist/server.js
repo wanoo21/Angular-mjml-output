@@ -26,17 +26,13 @@ app.use(body_parser_1.urlencoded({ extended: true }));
 app.set('port', PORT || 3002);
 app.set('isProduction', isProduction);
 app.post('/', (req, res) => {
-    const apiKey = req.get('x-api-key');
-    if (!apiKey) {
-        res.status(403).end();
-    }
-    else {
-        const output = mjml_output_1.default(req.body, isProduction);
-        res.json(output);
-    }
+    const { email, googleFonts } = req.body;
+    const output = mjml_output_1.default([email, googleFonts], isProduction);
+    res.json(output);
 });
 app.post('/mjml', (req, res) => {
-    const mjml = mjml_output_1.onlyMJML(req.body);
+    const { email, googleFonts } = req.body;
+    const mjml = mjml_output_1.onlyMJML(email, googleFonts);
     res.json({ mjml });
 });
 app.get('/ping', (req, res) => {
