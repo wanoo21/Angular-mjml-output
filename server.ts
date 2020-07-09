@@ -1,11 +1,10 @@
-import { createReadStream, existsSync } from 'fs';
+import { createReadStream } from 'fs';
 import express from 'express';
 import cors from 'cors';
 import { json, urlencoded } from 'body-parser';
 import { Request, Response } from 'express';
 
-import { getDirectoriesNames, getFilePathByType } from './utils';
-import mjmlOutput, { onlyMJML } from './mjml-output';
+import { onlyMJML, convertIPEmail, getFilePathByType } from './index';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -29,7 +28,7 @@ app.post('/', (req: Request, res: Response) => {
   //   res.status(403).end();
   // } else {
   // const { email, googleFonts } = req.body;
-  const output = mjmlOutput(req.body, isProduction);
+  const output = convertIPEmail(req.body, isProduction);
   res.json(output);
   // }
 });

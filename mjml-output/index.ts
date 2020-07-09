@@ -6,7 +6,7 @@ export function onlyMJML(data: IIPDefaultEmail & { googleFonts: string[] }) {
   return new EmailTemplate(data).render();
 }
 
-export default (data: IIPDefaultEmail & { googleFonts: string[] }, isProduction: boolean) => {
+export function convertIPEmail(data: IIPDefaultEmail & { googleFonts: string[] }, isProduction: boolean) {
   try {
     const mjml = onlyMJML(data);
     return {
