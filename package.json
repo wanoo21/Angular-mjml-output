@@ -1,19 +1,24 @@
 {
-  "name": "mjml-email-builder",
-  "version": "3.0.0",
+  "name": "@wlocalhost/mjml-email-builder",
+  "version": "3.1.0",
   "description": "",
-  "main": "dist/mjml-output/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
-    "copy": "copyfiles ./templates/**/**/* ./mjml-output/*.css ./dist",
+    "copy": "copyfiles ./templates/**/**/* ./mjml-output/*.css ./package.json ./dist",
     "build": "rimraf dist && tsc && yarn copy",
     "template-json": "ts-node generate-template-json.ts",
     "template-thumbnails": "ts-node generate-thumbnails.ts",
     "template-thumb:json": "npm run template-json && npm run template-thumbnails"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Wlocalhost"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

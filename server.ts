@@ -28,15 +28,15 @@ app.post('/', (req: Request, res: Response) => {
   // if (!apiKey) {
   //   res.status(403).end();
   // } else {
-  const { email, googleFonts } = req.body;
-  const output = mjmlOutput([email, googleFonts], isProduction);
+  // const { email, googleFonts } = req.body;
+  const output = mjmlOutput(req.body, isProduction);
   res.json(output);
   // }
 });
 
 app.post('/mjml', (req: Request, res: Response) => {
-  const { email, googleFonts } = req.body;
-  const mjml = onlyMJML(email, googleFonts);
+  // const { email, googleFonts } = req.body;
+  const mjml = onlyMJML(req.body);
   res.json({ mjml });
 });
 
@@ -44,21 +44,21 @@ app.get('/ping', (req: Request, res: Response) => {
   res.send('PONG');
 });
 
-app.get('/templates/:category/images/:img', (req: Request, res: Response) => {
-  const { category, img } = req.params
-  try {
-    const [templateFolder] = getDirectoriesNames(`./templates/${category}`).filter(
-      templateFolder => getFilePathByType(`./templates/${category}/${templateFolder}/images`, img)
-    )
-    if (!templateFolder || !existsSync(`./templates/${category}/${templateFolder}/images/${img}`)) {
-      throw new Error('Template not found.')
-    }
-    createReadStream(`./templates/${category}/${templateFolder}/images/${img}`).pipe(res)
-  } catch (error) {
-    console.log(error);
-    res.status(404).end()
-  }
-});
+// app.get('/templates/:category/images/:img', (req: Request, res: Response) => {
+//   const { category, img } = req.params
+//   try {
+//     const [templateFolder] = getDirectoriesNames(`./templates/${category}`).filter(
+//       templateFolder => getFilePathByType(`./templates/${category}/${templateFolder}/images`, img)
+//     )
+//     if (!templateFolder || !existsSync(`./templates/${category}/${templateFolder}/images/${img}`)) {
+//       throw new Error('Template not found.')
+//     }
+//     createReadStream(`./templates/${category}/${templateFolder}/images/${img}`).pipe(res)
+//   } catch (error) {
+//     console.log(error);
+//     res.status(404).end()
+//   }
+// });
 
 app.get('/templates', (req: Request, res: Response) => {
   createReadStream('./templates/templates.json').pipe(res)

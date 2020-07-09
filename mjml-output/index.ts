@@ -2,13 +2,13 @@ import mjml2html from 'mjml';
 import { EmailTemplate } from './EmailTemplate';
 import { IIPDefaultEmail } from './interfaces';
 
-export function onlyMJML(...args: [IIPDefaultEmail, string[]]) {
-  return new EmailTemplate(...args).render();
+export function onlyMJML(data: IIPDefaultEmail & { googleFonts: string[] }) {
+  return new EmailTemplate(data).render();
 }
 
-export default (data: [IIPDefaultEmail, string[]], isProduction: boolean) => {
+export default (data: IIPDefaultEmail & { googleFonts: string[] }, isProduction: boolean) => {
   try {
-    const mjml = onlyMJML(...data);
+    const mjml = onlyMJML(data);
     return {
       ...mjml2html(mjml, {
         fonts: {},
@@ -23,7 +23,10 @@ export default (data: [IIPDefaultEmail, string[]], isProduction: boolean) => {
     return {
       html: '',
       mjml: '',
-      errors: [error.message]
+      errors: [{
+        tagName: 'general',
+        message: error.message
+      }]
     };
   }
 };

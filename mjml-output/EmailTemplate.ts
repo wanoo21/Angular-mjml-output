@@ -15,7 +15,7 @@ import {
 
 export class EmailTemplate {
   // fontsMap = new Map();
-  constructor(private template: IIPDefaultEmail, private googleFonts: string[]) { }
+  constructor(private template: IIPDefaultEmail & { googleFonts: string[] }) { }
 
   private getUsedFonts() {
     const {
@@ -28,7 +28,7 @@ export class EmailTemplate {
     const usedFonts = new Set();
     const parsedFonts = new Map();
 
-    (this.googleFonts || fonts || []).forEach(font => {
+    (this.template.googleFonts || fonts || []).forEach(font => {
       const match = font.match(/[^\d:,]{2,}/g);
       if (match) {
         const [family] = match;
