@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Publish the library
+
+on:
+  release:
+    types: [released]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  publish_library:
+    name: Publishing ...
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+
+    - name: Add release version to environment
+      run: |
+        echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
+        echo Current release version: $RELEASE_VERSION
+
+    # Runs a single command using the runners shell
+    - name: Install modules & build the Library
+      run: |
+        npm install
+        npm build
+
+    - name: NPM-Version
+      uses: Reedyuk/NPM-Version@1.0.1
+      with:
+        version: ${{ env.RELEASE_VERSION }}
+        package: ./package.json
+
+    - name: Publish to Github repository
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        registry: https://npm.pkg.github.com
+        package: ./package.json
+        token: ${{ secrets.PERSONAL_TOKEN }}
