@@ -33,11 +33,14 @@ jobs:
         npm install
         npm build
 
-    - name: NPM-Version
-      uses: Reedyuk/NPM-Version@1.0.1
-      with:
-        version: ${{ env.RELEASE_VERSION }}
-        package: ./package.json
+    - name: Change version to be equal with current tag
+      run: npm version ${{ env.RELEASE_VERSION }} --prefix ./ --no-git-tag-version --allow-same-version
+
+    # - name: NPM-Version
+    #   uses: Reedyuk/NPM-Version@1.0.1
+    #   with:
+    #     version: ${{ env.RELEASE_VERSION }}
+    #     package: ./package.json
 
     - name: Publish to Github repository
       uses: JS-DevTools/npm-publish@v1
