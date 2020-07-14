@@ -31,20 +31,14 @@ jobs:
     - name: Install modules & build the Library
       run: |
         npm install
-        npm build
+        npm run build
 
     - name: Change version to be equal with current tag
-      run: npm version ${{ env.RELEASE_VERSION }} --prefix ./ --no-git-tag-version --allow-same-version
-
-    # - name: NPM-Version
-    #   uses: Reedyuk/NPM-Version@1.0.1
-    #   with:
-    #     version: ${{ env.RELEASE_VERSION }}
-    #     package: ./package.json
+      run: npm version ${{ env.RELEASE_VERSION }} --prefix ./dist --no-git-tag-version --allow-same-version
 
     - name: Publish to Github repository
       uses: JS-DevTools/npm-publish@v1
       with:
         registry: https://npm.pkg.github.com
-        package: ./package.json
+        package: ./dist/package.json
         token: ${{ secrets.PERSONAL_TOKEN }}
