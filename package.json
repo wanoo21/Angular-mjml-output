@@ -1,12 +1,12 @@
 {
   "name": "@wanoo21/ip-email-builder-convertor",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Convert IPEmail object to a HTML a fully responsive Template!",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
-    "copy": "copyfiles ./templates/**/**/* ./mjml-output/*.css ./package.json ./dist",
+    "copy": "copyfiles -a './templates/**' ./mjml-output/*.css ./package.json ./dist",
     "build": "rimraf dist && tsc && yarn copy",
     "template-json": "ts-node generate-template-json.ts",
     "template-thumbnails": "ts-node generate-thumbnails.ts",
