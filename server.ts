@@ -1,10 +1,11 @@
-import { createReadStream } from 'fs';
+import { createReadStream, readFileSync } from 'fs';
 import express from 'express';
 import cors from 'cors';
 import { json, urlencoded } from 'body-parser';
 import { Request, Response } from 'express';
 
 import { onlyMJML, convertIPEmail, getFilePathByType } from './index';
+import { convertMjmlToIpEmail } from './mjml-to-email';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -37,6 +38,12 @@ app.post('/mjml', (req: Request, res: Response) => {
   // const { email, googleFonts } = req.body;
   const mjml = onlyMJML(req.body);
   res.json({ mjml });
+});
+
+app.get('/to-object', (req: Request, res: Response) => {
+  const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/clothes`, `.mjml`), { encoding: 'utf-8' })
+  const ipEmail = convertMjmlToIpEmail(testMjml);
+  res.json(ipEmail);
 });
 
 app.get('/ping', (req: Request, res: Response) => {

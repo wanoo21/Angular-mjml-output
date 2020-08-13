@@ -252,3 +252,7 @@ export interface IIPDefaultEmail {
   general: IGeneralOptions;
   structures: IStructure[];
 }
+
+export class IPEmail {
+  constructor(public general: IGeneralOptions, structures: IStructure[]) { }
+}
