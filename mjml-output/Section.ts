@@ -28,7 +28,7 @@ const defaultColumnsOptions: IStructureColumnOptions = {
 export class Section implements RenderingClass {
   constructor(private structure: IStructure) {}
 
-  private getBlock(block: IpBlocks) {
+  private static getBlock(block: IpBlocks) {
     switch (block.type) {
       case 'text':
         return new Text(block.innerText, block.options).render();
@@ -74,7 +74,7 @@ export class Section implements RenderingClass {
             css-class="ip-column ${
               (column.border.radius || 0) > 0 ? 'ip-border-radius' : ''
             }">
-            ${el.map(block => this.getBlock(block)).join('')}
+            ${el.map(block => Section.getBlock(block)).join('')}
           </mj-column>
         `;
       })

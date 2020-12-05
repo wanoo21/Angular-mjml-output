@@ -1,13 +1,12 @@
-import { createReadStream, readFileSync } from 'fs';
-import express from 'express';
+import {createReadStream, readFileSync} from 'fs';
+import express, {Request, Response} from 'express';
 import cors from 'cors';
-import { json, urlencoded } from 'body-parser';
-import { Request, Response } from 'express';
+import {json, urlencoded} from 'body-parser';
 
-import { onlyMJML, convertIPEmail, getFilePathByType } from './index';
-import { convertMjmlToIpEmail } from './mjml-to-email';
+import {convertIPEmail, getFilePathByType, onlyMJML} from './index';
+import {convertMjmlToIpEmail} from './mjml-to-email';
 
-const { NODE_ENV, PORT } = process.env;
+const {NODE_ENV, PORT} = process.env;
 
 const isProduction = NODE_ENV === 'production';
 
@@ -17,37 +16,37 @@ app.disable('etag').disable('x-powered-by');
 
 app.use(cors());
 app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(urlencoded({extended: true}));
 
 app.set('port', PORT || 3002);
 app.set('isProduction', isProduction);
 
 app.post('/', (req: Request, res: Response) => {
-  // Check api key, just to emulate AWS forbiddden response
-  // const apiKey = req.get('x-api-key');
-  // if (!apiKey) {
-  //   res.status(403).end();
-  // } else {
-  // const { email, googleFonts } = req.body;
-  const output = convertIPEmail(req.body, isProduction);
-  res.json(output);
-  // }
+    // Check api key, just to emulate AWS forbidden response
+    // const apiKey = req.get('x-api-key');
+    // if (!apiKey) {
+    //   res.status(403).end();
+    // } else {
+    // const { email, googleFonts } = req.body;
+    const output = convertIPEmail(req.body, isProduction);
+    res.json(output);
+    // }
 });
 
 app.post('/mjml', (req: Request, res: Response) => {
-  // const { email, googleFonts } = req.body;
-  const mjml = onlyMJML(req.body);
-  res.json({ mjml });
+    // const { email, googleFonts } = req.body;
+    const mjml = onlyMJML(req.body);
+    res.json({mjml});
 });
 
 app.get('/to-object', (req: Request, res: Response) => {
-  const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/clothes`, `.mjml`), { encoding: 'utf-8' })
-  const ipEmail = convertMjmlToIpEmail(testMjml);
-  res.json(ipEmail);
+    const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/clothes`, `.mjml`), {encoding: 'utf-8'})
+    const ipEmail = convertMjmlToIpEmail(testMjml);
+    res.json(ipEmail);
 });
 
 app.get('/ping', (req: Request, res: Response) => {
-  res.send('PONG');
+    res.send('PONG');
 });
 
 // app.get('/templates/:category/images/:img', (req: Request, res: Response) => {
@@ -67,20 +66,20 @@ app.get('/ping', (req: Request, res: Response) => {
 // });
 
 app.get('/templates', (req: Request, res: Response) => {
-  createReadStream('./templates/templates.json').pipe(res)
+    createReadStream('./templates/templates.json').pipe(res)
 });
 
 app.get('/templates/:category/:name', (req: Request, res: Response) => {
-  const { category, name } = req.params
-  const { type = 'json' } = req.query
-  try {
-    const file = getFilePathByType(`./templates/${category}/${name}`, `.${type}`)
-    createReadStream(file).pipe(res)
-  } catch (error) {
-    res.json({ error: 'Template not found.' })
-  }
+    const {category, name} = req.params
+    const {type = 'json'} = req.query
+    try {
+        const file = getFilePathByType(`./templates/${category}/${name}`, `.${type}`)
+        createReadStream(file).pipe(res)
+    } catch (error) {
+        res.json({error: 'Template not found.'})
+    }
 });
 
 app.listen(app.get('port'), '0.0.0.0', () => {
-  console.log('Server running on port', app.get('port'));
+    console.log('Server running on port', app.get('port'));
 });

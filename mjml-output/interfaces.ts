@@ -4,33 +4,33 @@ export interface RenderingClass {
 
 export abstract class TextBlock {
   readonly type?: 'text';
-  constructor(public innerText: string, public options: ITextBlockOptions) { }
+  protected constructor(public innerText: string, public options: ITextBlockOptions) { }
 }
 
 export abstract class ImageBlock {
   readonly type?: 'image';
-  constructor(public src: string, public options: IImageBLockOptions) { }
+  protected constructor(public src: string, public options: IImageBLockOptions) { }
 }
 
 export abstract class ButtonBlock {
   readonly type?: 'button';
-  constructor(public innerText: string, public options: IButtonBlockOptions) { }
+  protected constructor(public innerText: string, public options: IButtonBlockOptions) { }
 }
 
 export abstract class DividerBlock {
   readonly type?: 'divider';
-  constructor(public options: IDividerBlockOptions) { }
+  protected constructor(public options: IDividerBlockOptions) { }
 }
 
 export abstract class SpacerBlock {
   readonly type?: 'spacer';
-  constructor(public options: ISpacerBlockOptions) { }
+  protected constructor(public options: ISpacerBlockOptions) { }
 }
 
 export abstract class SocialBlock {
   readonly type?= 'social';
 
-  constructor(
+  protected constructor(
     public networks: ISocialNetwork[],
     public options: ISocialBlockOptions
   ) { }
@@ -49,7 +49,7 @@ export interface IForRootConf {
   OwnerEmail: string;
 }
 
-export type TStructreTypes =
+export type TStructureTypes =
   | 'cols_1'
   | 'cols_2'
   | 'cols_3'
@@ -150,7 +150,7 @@ export interface IStructureOptions {
 }
 
 export interface IStructure {
-  readonly type: TStructreTypes;
+  readonly type: TStructureTypes;
   readonly id: number;
   options: IStructureOptions;
   elements: IpBlocks[][];
@@ -254,5 +254,5 @@ export interface IIPDefaultEmail {
 }
 
 export class IPEmail {
-  constructor(public general: IGeneralOptions, structures: IStructure[]) { }
+  constructor(public general: Partial<IGeneralOptions>, public structures: IStructure[]) { }
 }

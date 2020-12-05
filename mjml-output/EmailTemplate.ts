@@ -84,6 +84,7 @@ export class EmailTemplate {
           ></mj-all>
           </mj-attributes>
           <mj-style inline="inline">
+            <!--TODO extract all structures styles-->
             ${this.getStructuresStyles()}
             .ip-text-block p, h1, h2, h3, h4, h5, h6 {
               margin: 0;
