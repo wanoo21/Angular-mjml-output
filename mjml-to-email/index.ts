@@ -1,8 +1,15 @@
 import {load} from "cheerio";
 import {parse} from "css";
 
-import {IPEmail, IStructure, TBackgroundRepeat, TDirection, TStructureTypes, TUnits} from "../mjml-output/interfaces";
+/**
+ * TODO 1. Extract all blocks options
+ * TODO 2. Extract the right background options
+ * TODO 3. Adapt for external MJML Templates, as much as possible
+ */
+
+import {IPEmail, IStructure, TBackgroundRepeat, TDirection, TUnits} from "../mjml-output/interfaces";
 import {extractBorder, extractPadding, extractStyles} from "../mjml-output/utils";
+import {MjmlButton, MjmlDivider, MjmlImage, MjmlSocial, MjmlSpacer, MjmlText} from "./blocks";
 
 const supportedBlocks = [
     'mj-button',
@@ -12,6 +19,23 @@ const supportedBlocks = [
     'mj-spacer',
     'mj-text',
 ]
+
+function getBlock(block: CheerioElement, $block: Cheerio) {
+    switch (block.tagName) {
+        case 'mj-text':
+            return new MjmlText($block).toObject()
+        case 'mj-image':
+            return new MjmlImage($block).toObject()
+        case 'mj-button':
+            return new MjmlButton($block).toObject()
+        case 'mj-divider':
+            return new MjmlDivider($block).toObject();
+        case 'mj-spacer':
+            return new MjmlSpacer($block).toObject();
+        case 'mj-social':
+            return new MjmlSocial($block).toObject()
+    }
+}
 
 export function convertMjmlToIpEmail(mjml: string) {
     const $ = load(mjml);
@@ -27,13 +51,14 @@ export function convertMjmlToIpEmail(mjml: string) {
 
     const structures: IStructure[] = $body.find("mj-section").toArray().map((section) => {
         const $section = $(section);
+        const $columns = $section.find('mj-column')
         const [type, id] = $section.attr('css-class')?.split(' ') || '';
         const [columns] = type.match(/\d+/g) || [1];
         const sectionStyles = extractStyles(stylesheet, `.${id}`)
+        const [VerticalGap, HorizontalGap] = ($columns.first().attr('padding') || '4px 4px').split(' ').map(gap => parseInt(gap))
 
-        // @ts-ignore
         return {
-            type: type as TStructureTypes,
+            type,
             id: Number(id),
             options: {
                 margin: {
@@ -51,13 +76,38 @@ export function convertMjmlToIpEmail(mjml: string) {
                     repeat: $section.attr('background-repeat') as TBackgroundRepeat,
                     size: {
                         auto: true,
-                        unit: '%'
+                        unit: '%',
+                        value: 200
                     }
                     // size TODO
                 },
-                // disableResponsive: false
+                disableResponsive: !!$section.find('mj-group').length,
+                columns: $columns.toArray().map(column => {
+                    const $column = $(column);
+                    return {
+                        background: {
+                            color: $column.attr('background-color') || '#cccccc'
+                        },
+                        border: {
+                            ...extractBorder($column.attr('border')),
+                            radius: parseInt($column.attr('border-radius') || '0px')
+                        },
+                        verticalAlign: $column.attr('vertical-align') || 'top'
+                    }
+                }),
+                gaps: [VerticalGap, HorizontalGap],
+                columnsWidth: $columns.toArray().map(column => {
+                    const $column = $(column);
+                    const width = parseInt($column.attr('width') as string) / 10;
+                    return width === 10 ? 1 : width;
+                })
             },
-            elements: [[]],
+            elements: $columns.toArray().map(column => {
+                const $column = $(column);
+                return $column.children().toArray()
+                    .filter(({tagName}) => supportedBlocks.includes(tagName))
+                    .map(block => getBlock(block, $(block)))
+            }),
             columns: Number(columns)
         } as IStructure;
     });

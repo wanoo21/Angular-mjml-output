@@ -1,5 +1,5 @@
-import { ITextBlockOptions } from "@mjml-output/interfaces";
-import { MjmlToObject } from "@mjml-to-email/interfaces";
+import {ITextBlockOptions} from "../../mjml-output/interfaces";
+import {MjmlToObject} from "../interfaces";
 
 interface IFullTextOptions extends ITextBlockOptions {
     innerText: string
@@ -7,6 +7,6 @@ interface IFullTextOptions extends ITextBlockOptions {
 
 export class MjmlText extends MjmlToObject<IFullTextOptions> {
     toObject(): IFullTextOptions {
-        throw new Error("Method not implemented.");
+        return {} as IFullTextOptions
     }
 }

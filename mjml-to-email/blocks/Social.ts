@@ -1,5 +1,5 @@
-import { ISocialNetwork, ISocialBlockOptions } from "@mjml-output/interfaces";
-import { MjmlToObject } from "@mjml-to-email/interfaces";
+import {ISocialBlockOptions, ISocialNetwork} from "../../mjml-output/interfaces";
+import {MjmlToObject} from "../interfaces";
 
 interface IFullSocialOptions {
     networks: ISocialNetwork[],
@@ -8,6 +8,6 @@ interface IFullSocialOptions {
 
 export class MjmlSocial extends MjmlToObject<IFullSocialOptions> {
     toObject(): IFullSocialOptions {
-        throw new Error("Method not implemented.");
+        return {} as IFullSocialOptions
     }
 }

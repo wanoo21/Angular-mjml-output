@@ -1,5 +1,5 @@
-import { IButtonBlockOptions } from "@mjml-output/interfaces";
-import { MjmlToObject } from "@mjml-to-email/interfaces";
+import {IButtonBlockOptions} from "../../mjml-output/interfaces";
+import {MjmlToObject} from "../interfaces";
 
 interface IFullButtonOptions extends IButtonBlockOptions {
     innerText: string
@@ -7,6 +7,6 @@ interface IFullButtonOptions extends IButtonBlockOptions {
 
 export class MjmlButton extends MjmlToObject<IFullButtonOptions> {
     toObject(): IFullButtonOptions {
-        throw new Error("Method not implemented.");
+        return {} as IFullButtonOptions
     }
 }
