@@ -1,8 +1,10 @@
 import {IDividerBlockOptions} from "../../mjml-output/interfaces";
-import {MjmlToObject} from "../interfaces";
+import {MjmlToObject, TSupportedBlocks} from "../interfaces";
 
 export class MjmlDivider extends MjmlToObject<IDividerBlockOptions> {
-    toObject(): IDividerBlockOptions {
-        return {} as IDividerBlockOptions
+    type: TSupportedBlocks = 'divider'
+
+    createOptions(): IDividerBlockOptions {
+        return {border: this.extractBorder(), padding: this.extractPadding()};
     }
 }

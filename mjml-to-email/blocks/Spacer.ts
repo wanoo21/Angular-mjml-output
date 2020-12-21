@@ -1,8 +1,10 @@
 import {ISpacerBlockOptions} from "../../mjml-output/interfaces";
-import {MjmlToObject} from "../interfaces";
+import {MjmlToObject, TSupportedBlocks} from "../interfaces";
 
 export class MjmlSpacer extends MjmlToObject<ISpacerBlockOptions> {
-    toObject(): ISpacerBlockOptions {
-        return {} as ISpacerBlockOptions
+    type: TSupportedBlocks = 'spacer'
+
+    createOptions(): ISpacerBlockOptions {
+        return {height: this.extractWidthHeight('height')};
     }
 }

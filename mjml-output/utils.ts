@@ -11,14 +11,9 @@ export function extractBorder(border: string | undefined): IBorder {
     return {width: parseInt(width), color, style}
 }
 
-export const createPadding = ({
-                                  top = 10,
-                                  right = 25,
-                                  bottom = 10,
-                                  left = 25
-                              }: IPadding): string => {
+export function createPadding({top = 10, right = 25, bottom = 10, left = 25}: IPadding): string {
     return `${top}px ${right}px ${bottom}px ${left}px`;
-};
+}
 
 export function extractPadding(padding?: string): IPadding {
     if (!padding) return {top: 10, right: 25, bottom: 10, left: 25};
@@ -26,13 +21,13 @@ export function extractPadding(padding?: string): IPadding {
     return {top, right, bottom, left}
 }
 
-export const createFont = ({
+export function createFont({
                                family = 'Roboto',
                                fallback = 'Arial, Helvetica, sans-serif',
                                size = 13,
                                style = 'normal',
                                weight = 400
-                           }: IFont) => {
+                           }: IFont) {
     return {
         fontFamily: `${family}, ${fallback}`,
         fontSize: `${size}px`,
@@ -49,12 +44,13 @@ export const createBackground = ({
     return `${color} ${url && `url(${url}) ${repeat} top center`}`;
 };
 
-export const createLineHeight = ({
-                                     value = 22,
-                                     unit = 'px'
-                                 }: ILineHeight): string | number => {
+export function createLineHeight({value = 22, unit = 'px'}: ILineHeight): string | number {
     return unit !== 'none' ? `${value}${unit}` : '120%';
-};
+}
+
+// export function extractLineHeight(lineHeight: string): ILineHeight {
+//     return
+// }
 
 export const createWidthHeight = ({
                                       value = 100,

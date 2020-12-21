@@ -2,9 +2,9 @@ import {load} from "cheerio";
 import {parse} from "css";
 
 /**
- * TODO 1. Extract all blocks options
  * TODO 2. Extract the right background options
  * TODO 3. Adapt for external MJML Templates, as much as possible
+ * TODO 4. Add all errors in case of importing an external MJML Template
  */
 
 import {IPEmail, IStructure, TBackgroundRepeat, TDirection, TUnits} from "../mjml-output/interfaces";
@@ -112,7 +112,7 @@ export function convertMjmlToIpEmail(mjml: string) {
         } as IStructure;
     });
 
-    const [bodyWidthUnit] = ($body.attr('width') || '600px').match(/([^\d+]\w+)/g) || 'px';
+    const [bodyWidthUnit] = ($body.attr('width') || '600px').match(/([^\d+]\w+)/g) || ['px'];
     return new IPEmail({
         padding: extractPadding(bodyStyles('padding')),
         name: $head.find('mj-title').text(),

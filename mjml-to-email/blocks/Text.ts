@@ -1,12 +1,16 @@
 import {ITextBlockOptions} from "../../mjml-output/interfaces";
-import {MjmlToObject} from "../interfaces";
+import {MjmlToObject, TSupportedBlocks} from "../interfaces";
 
-interface IFullTextOptions extends ITextBlockOptions {
-    innerText: string
-}
+export class MjmlText extends MjmlToObject<ITextBlockOptions> {
+    type: TSupportedBlocks = 'text';
+    innerText = this.block.html()?.trim().replace(/<!-- htmlmin:ignore -->/g, '');
 
-export class MjmlText extends MjmlToObject<IFullTextOptions> {
-    toObject(): IFullTextOptions {
-        return {} as IFullTextOptions
+    createOptions(): ITextBlockOptions {
+        return {
+            color: this.extractColor(),
+            font: this.extractFont(),
+            lineHeight: this.extractLineHeight(),
+            padding: this.extractPadding(),
+        }
     }
 }
