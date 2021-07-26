@@ -1,76 +1,16 @@
-// import { readFileSync } from 'fs';
-// import { resolve } from 'path';
-import { Section } from './Section';
-import { IIPDefaultEmail } from './interfaces';
-import {
-  createPadding,
-  createWidthHeight,
-  createBackground,
-  createBorder
-} from './utils';
-
-// const styles = readFileSync(resolve(__dirname, './styles.css'), {
-//   encoding: 'utf-8'
-// });
+import {Section} from './Section';
+import {IIPDefaultEmail} from './interfaces';
+import {createBackground, createBorder, createPadding, createWidthHeight} from './utils';
 
 export class EmailTemplate {
-  // fontsMap = new Map();
-  constructor(private template: IIPDefaultEmail & { googleFonts: string[] }) { }
+    // fontsMap = new Map();
+    constructor(private template: IIPDefaultEmail & { googleFonts: string[] }) {
+    }
 
-  private getUsedFonts() {
-    const {
-      general: {
-        // Keep support for old templates
-        global: { fonts }
-      },
-      structures
-    } = this.template;
-    const usedFonts = new Set();
-    const parsedFonts = new Map();
+    render(): string {
+        const {structures, general} = this.template;
 
-    (this.template.googleFonts || fonts || []).forEach(font => {
-      const match = font.match(/[^\d:,]{2,}/g);
-      if (match) {
-        const [family] = match;
-        parsedFonts.set(family.replace('+', ' '), font);
-      }
-    });
-
-    structures.forEach(({ elements }) => {
-      elements.forEach(column => {
-        column.forEach(({ options }) => {
-          // @ts-ignore
-          if (options.font) {
-            // @ts-ignore
-            usedFonts.add(options.font.family);
-          }
-        });
-      });
-    });
-
-    return [...usedFonts].map(family => {
-      const font = parsedFonts.get(family);
-      if (!font) return null;
-      return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
-    }).filter(Boolean);
-  }
-
-  private getStructuresStyles() {
-    return this.template.structures
-      .map(({ id, options: { margin, border } }) => {
-        return `.${id} {
-          margin-top: ${margin.top}px !important;
-          margin-bottom: ${margin.bottom}px !important;
-          border: ${createBorder(border)};
-        }`;
-      })
-      .join('');
-  }
-
-  render(): string {
-    const { structures, general } = this.template;
-
-    return `
+        return `
       <mjml>
         <mj-head>
         <mj-title>${general.name}</mj-title>
@@ -83,6 +23,11 @@ export class EmailTemplate {
             font-family="Arial, Helvetica, sans-serif"
           ></mj-all>
           </mj-attributes>
+          <mj-style>
+            <!--[if mso | IE]>
+              .ip-section {border: 0!important, border-radius: 0!important}
+            <![endif]-->
+          </mj-style>
           <mj-style inline="inline">
             <!--TODO extract all structures styles-->
             ${this.getStructuresStyles()}
@@ -154,5 +99,54 @@ export class EmailTemplate {
         </mj-body>
       </mjml>
     `;
-  }
+    }
+
+    private getUsedFonts() {
+        const {
+            general: {
+                // Keep support for old templates
+                global: {fonts}
+            },
+            structures
+        } = this.template;
+        const usedFonts = new Set();
+        const parsedFonts = new Map();
+
+        (this.template.googleFonts || fonts || []).forEach(font => {
+            const match = font.match(/[^\d:,]{2,}/g);
+            if (match) {
+                const [family] = match;
+                parsedFonts.set(family.replace('+', ' '), font);
+            }
+        });
+
+        structures.forEach(({elements}) => {
+            elements.forEach(column => {
+                column.forEach(({options}) => {
+                    // @ts-ignore
+                    if (options.font) {
+                        // @ts-ignore
+                        usedFonts.add(options.font.family);
+                    }
+                });
+            });
+        });
+
+        return [...usedFonts].filter(Boolean).map(family => {
+            const font = parsedFonts.get(family);
+            return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
+        });
+    }
+
+    private getStructuresStyles() {
+        return this.template.structures
+            .map(({id, options: {margin, border}}) => {
+                return `.${id} {
+          margin-top: ${margin.top}px !important;
+          margin-bottom: ${margin.bottom}px !important;
+          border: ${createBorder(border)};
+        }`;
+            })
+            .join('');
+    }
 }

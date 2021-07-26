@@ -40,7 +40,7 @@ app.post('/mjml', (req: Request, res: Response) => {
 });
 
 app.get('/to-object', (req: Request, res: Response) => {
-    const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/clothes`, `.mjml`), {encoding: 'utf-8'})
+    const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/e-shop`, `.mjml`), {encoding: 'utf-8'})
     const ipEmail = convertMjmlToIpEmail(testMjml);
     res.json(ipEmail);
 });
