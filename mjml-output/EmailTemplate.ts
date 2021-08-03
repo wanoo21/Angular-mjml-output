@@ -112,7 +112,7 @@ export class EmailTemplate {
         const usedFonts = new Set();
         const parsedFonts = new Map();
 
-        (this.template.googleFonts || fonts || []).forEach(font => {
+        (this.template.googleFonts || fonts || []).filter(Boolean).forEach(font => {
             const match = font.match(/[^\d:,]{2,}/g);
             if (match) {
                 const [family] = match;
