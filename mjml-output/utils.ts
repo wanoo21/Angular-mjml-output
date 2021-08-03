@@ -2,6 +2,7 @@ import {IBackground, IBorder, IFont, ILineHeight, IPadding, IWidthHeight, TStruc
 import {Declaration, Rule, StyleRules} from "css";
 
 export function createBorder({color = '#000000', style = 'solid', width = 4}: IBorder): string {
+    if (width <= 0) return '0';
     return `${width}px ${style} ${color}`;
 }
 
@@ -34,7 +35,7 @@ export function createFont({
         fontStyle: style,
         fontWeight: weight
     };
-};
+}
 
 export const createBackground = ({
                                      url = '',

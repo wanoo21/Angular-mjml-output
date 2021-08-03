@@ -1,6 +1,6 @@
 {
   "name": "@wanoo21/ip-email-builder-convertor",
-  "version": "3.1.2",
+  "version": "0.0.0-development",
   "description": "Convert IPEmail object to a HTML a fully responsive Template!",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,35 @@
     "build": "rimraf dist && tsc && yarn copy",
     "template-json": "ts-node generate-template-json.ts",
     "template-thumbnails": "ts-node generate-thumbnails.ts",
-    "template-thumb:json": "npm run template-json && npm run template-thumbnails"
+    "template-thumb:json": "npm run template-json && npm run template-thumbnails",
+    "commit": "git add . && git-cz"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./dist"
+        }
+      ]
+    ]
   },
   "keywords": [],
   "repository": {
@@ -40,11 +68,17 @@
     "@types/mjml": "^4.0.0",
     "@types/node": "^10.9.4",
     "cheerio": "^1.0.0-rc.3",
+    "commitizen": "^4.2.4",
     "copyfiles": "^2.1.1",
     "nodemon": "^1.18.3",
     "rimraf": "^2.6.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.9.7",
     "webshot": "^0.18.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
