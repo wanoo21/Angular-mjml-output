@@ -21,20 +21,20 @@ jobs:
           node-version: '16'
           cache: 'yarn'
 
-        - name: Install modules & build the Library
-          run: |
-            yarn install
-            yarn build
+      - name: Install modules & build the Library
+        run: |
+          yarn install
+          yarn build
 
-        - name: Semantic Release
-          uses: cycjimmy/semantic-release-action@v2
-          with:
-            semantic_version: 17
-            extra_plugins: |
-              @semantic-release/changelog@^5.0.1
-              @semantic-release/git@^9.0.0
-              @semantic-release/github@^7.2.3
-              @semantic-release/npm@^7.1.3
-          env:
-            GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-            NPM_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          semantic_version: 17
+          extra_plugins: |
+            @semantic-release/changelog@^5.0.1
+            @semantic-release/git@^9.0.0
+            @semantic-release/github@^7.2.3
+            @semantic-release/npm@^7.1.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          NPM_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
