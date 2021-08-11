@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.2.0...v3.3.0) (2021-08-11)
+
+
+### Features
+
+* **text:** Add lists to text ([9a3c831](https://github.com/wanoo21/Angular-mjml-output/commit/9a3c831456b43c8a4b23a4e7484f75d4b426c542))
+
 # [3.2.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.1.2...v3.2.0) (2021-08-03)
 
 
