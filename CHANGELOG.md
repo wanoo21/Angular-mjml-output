@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.0...v3.3.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **text:** Ul/Ol margin: 0 ([8e495c4](https://github.com/wanoo21/Angular-mjml-output/commit/8e495c4727936b4f2cadbef654f02bc5b54ecdb2))
+
 # [3.3.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.2.0...v3.3.0) (2021-08-11)
 
 
