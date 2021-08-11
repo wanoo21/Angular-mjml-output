@@ -1,10 +1,15 @@
+import {readFileSync} from "fs";
+import {join} from "path";
+
 import {Section} from './Section';
 import {IIPDefaultEmail} from './interfaces';
 import {createBackground, createBorder, createPadding, createWidthHeight} from './utils';
 
 export class EmailTemplate {
     // fontsMap = new Map();
-    constructor(private template: IIPDefaultEmail & { googleFonts: string[] }) {
+    constructor(
+        private template: IIPDefaultEmail & { googleFonts: string[] }
+    ) {
     }
 
     render(): string {
@@ -27,63 +32,11 @@ export class EmailTemplate {
             <!--[if mso | IE]>
               .ip-section {border: 0!important, border-radius: 0!important}
             <![endif]-->
+            ${readFileSync(join(__dirname, 'editor-styles.css'), {encoding: 'utf-8'})}
           </mj-style>
           <mj-style inline="inline">
             <!--TODO extract all structures styles-->
             ${this.getStructuresStyles()}
-            .ip-text-block p, h1, h2, h3, h4, h5, h6 {
-              margin: 0;
-            }
-            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-              font-weight: inherit;
-              line-height: inherit;
-            }
-            .ip-text-block h1 {
-              font-size: 2em;
-            }
-            .ip-text-block h2,
-            .ql-size-large {
-              font-size: 1.5em;
-            }
-            .ip-text-block h3 {
-              font-size: 1.17em;
-            }
-            .ip-text-block h4 {
-              font-size: 1em;
-            }
-            .ip-text-block h5 {
-              font-size: 0.83em;
-            }
-            .ip-text-block h6 {
-              font-size: 0.67em;
-            }
-            .ip-text-block .ql-size-small {
-              font-size: 0.75em;
-            }
-            .ip-text-block .ql-size-huge {
-              font-size: 2.5em;
-            }
-            .ip-text-block .ql-align-left {
-              text-align: left;
-            }
-            .ip-text-block .ql-align-center {
-              text-align: center;
-            }
-            .ip-text-block .ql-align-right {
-              text-align: right;
-            }
-            .ip-text-block .ql-align-justify {
-              text-align: justify;
-            }
-            .ip-text-block .ql-direction-rtl {
-              direction: rtl;
-            }
-            .ip-text-block .ql-direction-ltr {
-              direction: ltr;
-            }
-            .ip-column.ip-border-radius table {
-              border-collapse: separate !important;
-            }
             .body {
               padding: ${createPadding(general.padding)};
               background: ${createBackground(general.background)};
