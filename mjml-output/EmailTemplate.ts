@@ -29,12 +29,17 @@ export class EmailTemplate {
           ></mj-all>
           </mj-attributes>
           <mj-style>
-            <!--[if mso | IE]>
-              .ip-section {border: 0!important, border-radius: 0!important}
-            <![endif]-->
-            ${readFileSync(join(__dirname, 'editor-styles.css'), {encoding: 'utf-8'})}
+            ${readFileSync(join(__dirname, 'styles.css'), {encoding: 'utf-8'})}
           </mj-style>
+          <mj-raw>
+              <!--[if gte mso]>
+              <style type="text/css">
+                img { min-height: auto; }
+              </style>
+              <![endif]-->
+          </mj-raw>
           <mj-style inline="inline">
+          ${readFileSync(join(__dirname, 'inline-styles.css'), {encoding: 'utf-8'})}
             <!--TODO extract all structures styles-->
             ${this.getStructuresStyles()}
             .body {

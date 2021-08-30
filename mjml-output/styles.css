@@ -1,8 +1,156 @@
-@media all and (max-width: 480px) {
-  .ip-section:not(.disable-responsive) .ip-column > table > tbody > tr > td {
-    padding: 0 !important;
-  }
-  .ip-section:not(.disable-responsive) .ip-column + .ip-column {
-    margin-top: 8px;
-  }
+/*@media all and (max-width: 480px) {*/
+/*  .ip-section:not(.disable-responsive) .ip-column > table > tbody > tr > td {*/
+/*    padding: 0 !important;*/
+/*  }*/
+/*  .ip-section:not(.disable-responsive) .ip-column + .ip-column {*/
+/*    margin-top: 8px;*/
+/*  }*/
+/*}*/
+
+
+.ip-text-block p,
+.ip-text-block ol,
+.ip-text-block ul,
+.ip-text-block pre,
+.ip-text-block blockquote,
+.ip-text-block h1,
+.ip-text-block h2,
+.ip-text-block h3,
+.ip-text-block h4,
+.ip-text-block h5,
+.ip-text-block h6 {
+    margin: 0;
+    padding: 0;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ip-text-block ul > li::before {
+    content: '\2022';
+}
+.ip-text-block ul[data-checked=true],
+.ip-text-block ul[data-checked=false] {
+    pointer-events: none;
+}
+.ip-text-block ul[data-checked=true] > li *,
+.ip-text-block ul[data-checked=false] > li * {
+    pointer-events: all;
+}
+.ip-text-block ul[data-checked=true] > li::before,
+.ip-text-block ul[data-checked=false] > li::before {
+    color: #777;
+    cursor: pointer;
+    pointer-events: all;
+}
+.ip-text-block ul[data-checked=true] > li::before {
+    content: '\2611';
+}
+.ip-text-block ul[data-checked=false] > li::before {
+    content: '\2610';
+}
+.ip-text-block li::before {
+    display: inline-block;
+    white-space: nowrap;
+    width: 1.2em;
+}
+.ip-text-block li:not(.ql-direction-rtl)::before {
+    margin-left: -1.5em;
+    margin-right: 0.3em;
+    text-align: right;
+}
+.ip-text-block li.ql-direction-rtl::before {
+    margin-left: 0.3em;
+    margin-right: -1.5em;
+}
+.ip-text-block ol li {
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+    counter-increment: list-0;
+}
+.ip-text-block ol li:before {
+    content: counter(list-0, decimal) '. ';
+}
+.ip-text-block ol li.ql-indent-1 {
+    counter-increment: list-1;
+}
+.ip-text-block ol li.ql-indent-1:before {
+    content: counter(list-1, lower-alpha) '. ';
+}
+.ip-text-block ol li.ql-indent-1 {
+    counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-2 {
+    counter-increment: list-2;
+}
+.ip-text-block ol li.ql-indent-2:before {
+    content: counter(list-2, lower-roman) '. ';
+}
+.ip-text-block ol li.ql-indent-2 {
+    counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-3 {
+    counter-increment: list-3;
+}
+.ip-text-block ol li.ql-indent-3:before {
+    content: counter(list-3, decimal) '. ';
+}
+.ip-text-block ol li.ql-indent-3 {
+    counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-4 {
+    counter-increment: list-4;
+}
+.ip-text-block ol li.ql-indent-4:before {
+    content: counter(list-4, lower-alpha) '. ';
+}
+.ip-text-block ol li.ql-indent-4 {
+    counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-5 {
+    counter-increment: list-5;
+}
+.ip-text-block ol li.ql-indent-5:before {
+    content: counter(list-5, lower-roman) '. ';
+}
+.ip-text-block ol li.ql-indent-5 {
+    counter-reset: list-6 list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-6 {
+    counter-increment: list-6;
+}
+.ip-text-block ol li.ql-indent-6:before {
+    content: counter(list-6, decimal) '. ';
+}
+.ip-text-block ol li.ql-indent-6 {
+    counter-reset: list-7 list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-7 {
+    counter-increment: list-7;
+}
+.ip-text-block ol li.ql-indent-7:before {
+    content: counter(list-7, lower-alpha) '. ';
+}
+.ip-text-block ol li.ql-indent-7 {
+    counter-reset: list-8 list-9;
+}
+.ip-text-block ol li.ql-indent-8 {
+    counter-increment: list-8;
+}
+.ip-text-block ol li.ql-indent-8:before {
+    content: counter(list-8, lower-roman) '. ';
+}
+.ip-text-block ol li.ql-indent-8 {
+    counter-reset: list-9;
+}
+.ip-text-block ol li.ql-indent-9 {
+    counter-increment: list-9;
+}
+.ip-text-block ol li.ql-indent-9:before {
+    content: counter(list-9, decimal) '. ';
+}
+.ip-text-block.ql-blank::before {
+    color: rgba(0,0,0,0.6);
+    content: attr(data-placeholder);
+    font-style: italic;
+    left: 15px;
+    pointer-events: none;
+    position: absolute;
+    right: 15px;
 }
