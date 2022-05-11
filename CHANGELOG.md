@@ -1,3 +1,10 @@
+## [3.3.2-beta.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.1...v3.3.2-beta.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* Text block styles & Outlook small image fix ([8b8548d](https://github.com/wanoo21/Angular-mjml-output/commit/8b8548dbc3180efd0333f6c0fb5eb0cfdb82b7c7))
+
 ## [3.3.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.1...v3.3.2) (2022-05-11)
 
 
