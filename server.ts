@@ -45,6 +45,17 @@ app.get('/to-object', (req: Request, res: Response) => {
     res.json(ipEmail);
 });
 
+app.get('/test/:category/:name', (req: Request, res: Response) => {
+    const {category, name} = req.params
+    try {
+        const file = readFileSync(getFilePathByType(`./templates/${category}/${name}`, `.json`), {encoding: 'utf-8'})
+        const {html} = convertIPEmail(JSON.parse(file), true)
+        res.send(html)
+    } catch (error) {
+        res.json({error: 'Template not found.'})
+    }
+});
+
 app.get('/ping', (req: Request, res: Response) => {
     res.send('PONG');
 });

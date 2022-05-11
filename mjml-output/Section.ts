@@ -87,6 +87,10 @@ export class Section implements RenderingClass {
     return columnsElements;
   }
 
+  /**
+   * @version 4
+   * Add support for full-width
+   */
   render() {
     const { type, id, options } = this.structure;
     let cssClass = `${type} ${id} ip-section`;
@@ -96,6 +100,7 @@ export class Section implements RenderingClass {
     return `
       <mj-section
         css-class="${cssClass}"
+        full-width="none"
         border-radius="${options.border.radius}px"
         text-align="center"
         padding="${createPadding(options.padding)}"

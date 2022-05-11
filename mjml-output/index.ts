@@ -19,7 +19,7 @@ export function convertIPEmail(data: IIPDefaultEmail & { googleFonts: string[] }
             }),
             mjml
         };
-    } catch (error) {
+    } catch (error: any) {
         return {
             html: '',
             mjml: '',
