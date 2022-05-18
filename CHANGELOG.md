@@ -1,3 +1,10 @@
+## [3.3.2-beta.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.1...v3.3.2-beta.2) (2022-05-18)
+
+
+### Performance Improvements
+
+* Update blocks to the latest version ([5dd71a1](https://github.com/wanoo21/Angular-mjml-output/commit/5dd71a1e08f38cb361e286ae5eb6fa755cb0b93b))
+
 ## [3.3.2-beta.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.1...v3.3.2-beta.1) (2022-05-11)
 
 
