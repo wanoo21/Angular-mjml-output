@@ -27,8 +27,6 @@ export class EmailTemplate {
                     </mj-style>
                     <mj-style inline="inline">
                         ${readFileSync(join(__dirname, 'inline-styles.css'), {encoding: 'utf-8'})}
-                        <!--TODO extract all structures styles-->
-                        ${this.getStructuresStyles()}
                         .body {
                           padding: ${createPadding(general.padding)};
                           background: ${createBackground(general.background)};
@@ -78,11 +76,5 @@ export class EmailTemplate {
             const font = parsedFonts.get(family);
             return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
         });
-    }
-
-    private getStructuresStyles() {
-        return this.template.structures.map(({id, options: {margin}}) => {
-            return `.${id} { margin-top: ${margin.top}px !important; margin-bottom: ${margin.bottom}px !important; }`;
-        }).join('');
     }
 }

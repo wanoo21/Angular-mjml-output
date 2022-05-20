@@ -49,10 +49,31 @@ export class Section implements RenderingClass {
     render() {
         const {type, id, options} = this.structure;
         let cssClass = `${type} ${id} ip-section`;
+        let topMarginSection = '', bottomMarginSection = '';
         if (options.disableResponsive) {
             cssClass = `${cssClass} disable-responsive`;
         }
+
+        // Workaround of top margin
+        if (options.margin.top > 0) {
+            topMarginSection = `<mj-section full-width="false" padding="0">
+                                    <mj-column>
+                                        <mj-spacer padding="0" height="${options.margin.top}px"></mj-spacer>
+                                    </mj-column>
+                                </mj-section>`
+        }
+
+        // Workaround of bottom margin
+        if (options.margin.bottom > 0) {
+            bottomMarginSection = `<mj-section full-width="false" padding="0">
+                                        <mj-column>
+                                            <mj-spacer padding="0" height="${options.margin.bottom}px"></mj-spacer>
+                                        </mj-column>
+                                    </mj-section>`
+        }
+
         return `
+          ${topMarginSection}
           <mj-section
             full-width="false"
             css-class="${cssClass}"
@@ -63,13 +84,10 @@ export class Section implements RenderingClass {
             background-color="${options.background.color}"
             background-url="${options.background.url}"
             background-repeat="${options.background.repeat}"
-            background-size="${
-            options.background.size
-                ? createWidthHeight(options.background.size)
-                : 'auto'
-        }">
+            background-size="${options.background.size ? createWidthHeight(options.background.size) : 'auto'}">
             ${this.createColumns()}
           </mj-section>
+          ${bottomMarginSection}
       `;
     }
 
