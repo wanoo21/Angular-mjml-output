@@ -1,3 +1,10 @@
+## [3.3.2-beta.3](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.2...v3.3.2-beta.3) (2022-05-20)
+
+
+### Bug Fixes
+
+* Section margins ([8e7b72b](https://github.com/wanoo21/Angular-mjml-output/commit/8e7b72bccfe8341f4db963b7b5f3b9633e2ed9d1))
+
 ## [3.3.2-beta.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.1...v3.3.2-beta.2) (2022-05-18)
 
 
