@@ -47,8 +47,8 @@ export class Section implements RenderingClass {
      * full-width
      */
     render() {
-        const {type, id, options} = this.structure;
-        let cssClass = `${type} ${id} ip-section`;
+        const {type, options} = this.structure;
+        let cssClass = `${type} ip-section`;
         let topMarginSection = '', bottomMarginSection = '';
         if (options.disableResponsive) {
             cssClass = `${cssClass} disable-responsive`;
@@ -75,14 +75,14 @@ export class Section implements RenderingClass {
         return `
           ${topMarginSection}
           <mj-section
-            full-width="false"
+            full-width="${options.fullWidth ? 'full-width' : 'false'}"
             css-class="${cssClass}"
             border="${createBorder(options.border)}"
             border-radius="${options.border.radius}px"
             text-align="center"
             padding="${createPadding(options.padding)}"
             background-color="${options.background.color}"
-            background-url="${options.background.url}"
+            ${options.background.url ? `background-url="${options.background.url}"` : ''}
             background-repeat="${options.background.repeat}"
             background-size="${options.background.size ? createWidthHeight(options.background.size) : 'auto'}">
             ${this.createColumns()}

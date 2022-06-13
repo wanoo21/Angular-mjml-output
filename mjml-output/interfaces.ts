@@ -144,6 +144,7 @@ export interface IStructureOptions {
   padding: IPadding;
   margin: IMargin;
   disableResponsive: boolean;
+  fullWidth?: boolean;
   gaps: [number, number];
   columnsWidth: number[];
   columns: IStructureColumnOptions[];
