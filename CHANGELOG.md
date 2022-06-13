@@ -1,3 +1,10 @@
+## [3.3.2-beta.4](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.3...v3.3.2-beta.4) (2022-06-13)
+
+
+### Bug Fixes
+
+* Section full width ([ed60920](https://github.com/wanoo21/Angular-mjml-output/commit/ed60920cab1d661e0805bec59437d34ea646264f))
+
 ## [3.3.2-beta.3](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.2...v3.3.2-beta.3) (2022-05-20)
 
 
