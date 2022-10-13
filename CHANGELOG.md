@@ -1,3 +1,10 @@
+# [3.4.0-beta.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.4...v3.4.0-beta.1) (2022-10-13)
+
+
+### Features
+
+* minify & other optimisations ([e734c37](https://github.com/wanoo21/Angular-mjml-output/commit/e734c379c2466baf80124bda6a664d87209da9b0))
+
 ## [3.3.2-beta.4](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2-beta.3...v3.3.2-beta.4) (2022-06-13)
 
 
