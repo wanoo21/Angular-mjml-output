@@ -6,6 +6,8 @@ import {json, urlencoded} from 'body-parser';
 import {convertIPEmail, getFilePathByType, onlyMJML} from './index';
 import {convertMjmlToIpEmail} from './mjml-to-email';
 
+const bodyParser = require("body-parser");
+
 const {NODE_ENV, PORT} = process.env;
 
 const isProduction = NODE_ENV === 'production';
@@ -14,9 +16,9 @@ const app = express();
 
 app.disable('etag').disable('x-powered-by');
 
+app.use(bodyParser.json({limit: '1mb'}));
+app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
 app.use(cors());
-app.use(json());
-app.use(urlencoded({extended: true}));
 
 app.set('port', PORT || 3002);
 app.set('isProduction', isProduction);
