@@ -16,8 +16,8 @@ export class EmailTemplate {
         return `
             <mjml>
                 <mj-head>
-                    <mj-title>${general.name}</mj-title>
-                    <mj-preview>${general.previewText}</mj-preview>
+                    ${general.name && `<mj-title>${general.name}</mj-title>`}
+                    ${general.previewText && `<mj-preview>${general.previewText}</mj-preview>`}
                     ${this.getUsedFonts()}
                     <mj-attributes>
                         <mj-all padding="${createPadding(general.global.padding)}" direction="${general.direction}" font-family="Arial, Helvetica, sans-serif"></mj-all>
@@ -42,17 +42,11 @@ export class EmailTemplate {
     }
 
     private getUsedFonts() {
-        const {
-            general: {
-                // Keep support for old templates
-                global: {fonts}
-            },
-            structures
-        } = this.template;
+        const {structures, googleFonts = []} = this.template;
         const usedFonts = new Set();
         const parsedFonts = new Map();
 
-        (this.template.googleFonts || fonts || []).filter(Boolean).forEach(font => {
+        googleFonts.filter(Boolean).forEach(font => {
             const match = font.match(/[^\d:,]{2,}/g);
             if (match) {
                 const [family] = match;
@@ -72,9 +66,9 @@ export class EmailTemplate {
             });
         });
 
-        return [...usedFonts].filter(Boolean).map(family => {
+        return [...usedFonts].map(family => {
             const font = parsedFonts.get(family);
-            return `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
-        });
+            return !font || `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
+        }).filter(Boolean);
     }
 }

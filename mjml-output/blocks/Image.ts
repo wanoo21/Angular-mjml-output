@@ -13,7 +13,6 @@ export class Image implements ImageBlock, RenderingClass {
      */
     render() {
         const {border, width, height, link, align, title, padding} = this.options;
-
         return `
           <mj-image
             css-class="ip-image-block"

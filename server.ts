@@ -6,18 +6,14 @@ import {json, urlencoded} from 'body-parser';
 import {convertIPEmail, getFilePathByType, onlyMJML} from './index';
 import {convertMjmlToIpEmail} from './mjml-to-email';
 
-const bodyParser = require("body-parser");
-
 const {NODE_ENV, PORT} = process.env;
-
 const isProduction = NODE_ENV === 'production';
-
 const app = express();
 
 app.disable('etag').disable('x-powered-by');
 
-app.use(bodyParser.json({limit: '1mb'}));
-app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
+app.use(json({limit: '1mb'}));
+app.use(urlencoded({limit: '1mb', extended: true}));
 app.use(cors());
 
 app.set('port', PORT || 3002);
@@ -54,7 +50,7 @@ app.get('/test/:category/:name', (req: Request, res: Response) => {
         const {html} = convertIPEmail(JSON.parse(file), true)
         res.send(html)
     } catch (error) {
-        res.json({error: 'Template not found.'})
+        res.status(404).json({error: 'Template not found.'})
     }
 });
 
