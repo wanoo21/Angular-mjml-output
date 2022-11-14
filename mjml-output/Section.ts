@@ -81,7 +81,7 @@ export class Section implements RenderingClass {
             border-radius="${options.border.radius}px"
             text-align="center"
             padding="${createPadding(options.padding)}"
-            background-color="${options.background.color}"
+            ${options.background.color !== 'transparent' ? `background-color="${options.background.color}"` : ''}
             ${options.background.url ? `background-url="${options.background.url}"` : ''}
             background-repeat="${options.background.repeat}"
             background-size="${options.background.size ? createWidthHeight(options.background.size) : 'auto'}">
@@ -111,7 +111,7 @@ export class Section implements RenderingClass {
             return `
               <mj-column
                 width="${this.getColumnWidth(index)}%"
-                background-color="${column.background.color}"
+                ${column.background.color !== 'transparent' ? `background-color="${column.background.color}"` : ''}
                 padding="${gaps[0]}px ${gaps[1]}px"
                 border="${createBorder(column.border)}"
                 border-radius="${column.border.radius || 0}px"

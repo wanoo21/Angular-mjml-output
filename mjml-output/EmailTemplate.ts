@@ -16,8 +16,8 @@ export class EmailTemplate {
         return `
             <mjml>
                 <mj-head>
-                    ${general.name && `<mj-title>${general.name}</mj-title>`}
-                    ${general.previewText && `<mj-preview>${general.previewText}</mj-preview>`}
+                    ${general.name ? `<mj-title>${general.name}</mj-title>` : ''}
+                    ${general.previewText ? `<mj-preview>${general.previewText}</mj-preview>` : ''}
                     ${this.getUsedFonts()}
                     <mj-attributes>
                         <mj-all padding="${createPadding(general.global.padding)}" direction="${general.direction}" font-family="Arial, Helvetica, sans-serif"></mj-all>
@@ -34,7 +34,7 @@ export class EmailTemplate {
                         }
                     </mj-style>
                 </mj-head>
-                <mj-body css-class="body" width="${createWidthHeight(general.width)}" background-color="${general.background.color}">
+                <mj-body css-class="body" width="${createWidthHeight(general.width)}">
                     ${structures.map(structure => new Section(structure).render()).join('')}
                 </mj-body>
             </mjml>
@@ -69,6 +69,6 @@ export class EmailTemplate {
         return [...usedFonts].map(family => {
             const font = parsedFonts.get(family);
             return !font || `<mj-font name="${family}" href="https://fonts.googleapis.com/css?family=${font}" />`;
-        }).filter(Boolean);
+        }).filter(Boolean).join('\n');
     }
 }
