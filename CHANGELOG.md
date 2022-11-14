@@ -1,3 +1,21 @@
+# [3.4.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2...v3.4.0) (2022-11-14)
+
+
+### Bug Fixes
+
+* Section full width ([ed60920](https://github.com/wanoo21/Angular-mjml-output/commit/ed60920cab1d661e0805bec59437d34ea646264f))
+* Section margins ([8e7b72b](https://github.com/wanoo21/Angular-mjml-output/commit/8e7b72bccfe8341f4db963b7b5f3b9633e2ed9d1))
+
+
+### Features
+
+* minify & other optimisations ([e734c37](https://github.com/wanoo21/Angular-mjml-output/commit/e734c379c2466baf80124bda6a664d87209da9b0))
+
+
+### Performance Improvements
+
+* Update blocks to the latest version ([5dd71a1](https://github.com/wanoo21/Angular-mjml-output/commit/5dd71a1e08f38cb361e286ae5eb6fa755cb0b93b))
+
 ### Bug Fixes
 
 * Text block styles & Outlook small image fix ([8b8548d](https://github.com/wanoo21/Angular-mjml-output/commit/8b8548dbc3180efd0333f6c0fb5eb0cfdb82b7c7))
