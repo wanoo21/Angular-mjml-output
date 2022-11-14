@@ -26,7 +26,7 @@ export function convertIPEmail(data: IIPDefaultEmail & { googleFonts: string[] }
                     minifyCSS: true,
                     collapseWhitespace: true,
                     removeEmptyAttributes: true,
-                })
+                }), errors: [] // errors must be sent always
             };
         }
         return {mjml, html};
