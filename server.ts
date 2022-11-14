@@ -7,16 +7,14 @@ import {convertIPEmail, getFilePathByType, onlyMJML} from './index';
 import {convertMjmlToIpEmail} from './mjml-to-email';
 
 const {NODE_ENV, PORT} = process.env;
-
 const isProduction = NODE_ENV === 'production';
-
 const app = express();
 
 app.disable('etag').disable('x-powered-by');
 
+app.use(json({limit: '1mb'}));
+app.use(urlencoded({limit: '1mb', extended: true}));
 app.use(cors());
-app.use(json());
-app.use(urlencoded({extended: true}));
 
 app.set('port', PORT || 3002);
 app.set('isProduction', isProduction);
@@ -43,6 +41,17 @@ app.get('/to-object', (req: Request, res: Response) => {
     const testMjml = readFileSync(getFilePathByType(`./templates/ecommerce/e-shop`, `.mjml`), {encoding: 'utf-8'})
     const ipEmail = convertMjmlToIpEmail(testMjml);
     res.json(ipEmail);
+});
+
+app.get('/test/:category/:name', (req: Request, res: Response) => {
+    const {category, name} = req.params
+    try {
+        const file = readFileSync(getFilePathByType(`./templates/${category}/${name}`, `.json`), {encoding: 'utf-8'})
+        const {html} = convertIPEmail(JSON.parse(file), true)
+        res.send(html)
+    } catch (error) {
+        res.status(404).json({error: 'Template not found.'})
+    }
 });
 
 app.get('/ping', (req: Request, res: Response) => {

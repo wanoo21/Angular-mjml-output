@@ -7,6 +7,7 @@ on:
     branches:
       - master
       - beta
+      - alpha
       - next
 
 jobs:
@@ -19,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          cache: 'yarn'
+#          cache: 'yarn'
 
       - name: Install modules & build the Library
         run: |
@@ -30,6 +31,14 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2
         with:
           semantic_version: 17
+          branches: |
+            [
+              '+([0-9])?(.{+([0-9]),x}).x',
+              'master',
+              'next',
+              {name: 'beta', prerelease: true}, 
+              {name: 'alpha', prerelease: true}
+            ]
           extra_plugins: |
             @semantic-release/changelog@^5.0.1
             @semantic-release/git@^9.0.0

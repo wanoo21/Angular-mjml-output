@@ -1,3 +1,4 @@
+import * as Cheerio from "cheerio";
 import {load} from "cheerio";
 import {parse} from "css";
 
@@ -6,7 +7,6 @@ import {parse} from "css";
  * TODO 3. Adapt for external MJML Templates, as much as possible
  * TODO 4. Add all errors in case of importing an external MJML Template
  */
-
 import {IPEmail, IStructure, TBackgroundRepeat, TDirection, TUnits} from "../mjml-output/interfaces";
 import {extractBorder, extractPadding, extractStyles} from "../mjml-output/utils";
 import {MjmlButton, MjmlDivider, MjmlImage, MjmlSocial, MjmlSpacer, MjmlText} from "./blocks";
@@ -20,7 +20,8 @@ const supportedBlocks = [
     'mj-text',
 ]
 
-function getBlock(block: CheerioElement, $block: Cheerio) {
+// @ts-ignore
+function getBlock(block: CheerioElement, $block: typeof Cheerio) {
     switch (block.tagName) {
         case 'mj-text':
             return new MjmlText($block).toObject()
@@ -46,6 +47,7 @@ export function convertMjmlToIpEmail(mjml: string) {
 
     const fonts: string[] = []
     $head.find("mj-font").each((q, font) => {
+        // @ts-ignore
         fonts.push(font.attribs.href)
     })
 
@@ -105,7 +107,9 @@ export function convertMjmlToIpEmail(mjml: string) {
             elements: $columns.toArray().map(column => {
                 const $column = $(column);
                 return $column.children().toArray()
+                    // @ts-ignore
                     .filter(({tagName}) => supportedBlocks.includes(tagName))
+                    // @ts-ignore
                     .map(block => getBlock(block, $(block)))
             }),
             columns: Number(columns)

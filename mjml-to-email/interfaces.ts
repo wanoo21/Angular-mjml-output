@@ -19,6 +19,7 @@ export abstract class MjmlToObject<T> {
     src?: string;
     networks?: ISocialNetwork[]
 
+    // @ts-ignore
     constructor(public block: Cheerio) {
     };
 

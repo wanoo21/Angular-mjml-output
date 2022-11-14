@@ -231,6 +231,10 @@
 .ip-text-block h6 {
     font-size: 0.67em;
 }
+.ip-text-block a {
+    color: inherit;
+    text-decoration: inherit;
+}
 .ip-text-block .ql-size-small {
     font-size: 0.75em;
 }

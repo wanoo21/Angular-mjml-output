@@ -1,33 +1,38 @@
-import {
-  RenderingClass,
-  ButtonBlock,
-  IButtonBlockOptions
-} from '../interfaces';
-import {
-  createBorder,
-  createLineHeight,
-  createPadding,
-  ignoreHTMLMinParse
-} from '../utils';
+import {ButtonBlock, IButtonBlockOptions, RenderingClass} from '../interfaces';
+import {createBorder, createLineHeight, createPadding, ignoreHTMLMinParse} from '../utils';
 
+/**
+ * The `mj-button` won't be fully clickable because of client support
+ */
 export class Button implements ButtonBlock, RenderingClass {
-  constructor(public innerText: string, public options: IButtonBlockOptions) {}
+    constructor(public innerText: string, public options: IButtonBlockOptions) {
+    }
 
-  render() {
-    const {
-      backgroundColor,
-      border,
-      color,
-      font,
-      align,
-      lineHeight,
-      link,
-      innerPadding,
-      padding,
-      fullWidth
-    } = this.options;
+    /**
+     * @version 4
+     * Add support for attributes:
+     * container-background-color
+     * height
+     * letter-spacing
+     * rel
+     * text-align
+     * title
+     */
+    render() {
+        const {
+            backgroundColor,
+            border,
+            color,
+            font,
+            align,
+            lineHeight,
+            link,
+            innerPadding,
+            padding,
+            fullWidth
+        } = this.options;
 
-    return `
+        return `
       <mj-button css-class="ip-button-block"
         ${fullWidth ? 'width="100%"' : ''}
         background-color="${backgroundColor}"
@@ -48,5 +53,5 @@ export class Button implements ButtonBlock, RenderingClass {
           ${ignoreHTMLMinParse(this.innerText)}
       </mj-button>
     `;
-  }
+    }
 }
