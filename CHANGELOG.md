@@ -1,3 +1,10 @@
+# [3.4.0-beta.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0-beta.1...v3.4.0-beta.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* always send errors property ([41140f9](https://github.com/wanoo21/Angular-mjml-output/commit/41140f9b2140e5500dc80b074900099e52795be8))
+
 ### Bug Fixes
 
 * Text block styles & Outlook small image fix ([8b8548d](https://github.com/wanoo21/Angular-mjml-output/commit/8b8548dbc3180efd0333f6c0fb5eb0cfdb82b7c7))
