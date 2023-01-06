@@ -16,7 +16,7 @@ app.use(json({limit: '1mb'}));
 app.use(urlencoded({limit: '1mb', extended: true}));
 app.use(cors());
 
-app.set('port', PORT || 3002);
+app.set('port', PORT || 3000);
 app.set('isProduction', isProduction);
 
 app.post('/', (req: Request, res: Response) => {
