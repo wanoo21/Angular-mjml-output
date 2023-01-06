@@ -1,16 +1,20 @@
-# [3.4.0-beta.3](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0-beta.2...v3.4.0-beta.3) (2023-01-06)
+# [3.4.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.3.2...v3.4.0) (2022-11-14)
 
 
 ### Bug Fixes
 
-* send errors always ([fce85c7](https://github.com/wanoo21/Angular-mjml-output/commit/fce85c7037c5a9572b9d9993c0fb7fdd80f5301b))
+* Section full width ([ed60920](https://github.com/wanoo21/Angular-mjml-output/commit/ed60920cab1d661e0805bec59437d34ea646264f))
+* Section margins ([8e7b72b](https://github.com/wanoo21/Angular-mjml-output/commit/8e7b72bccfe8341f4db963b7b5f3b9633e2ed9d1))
 
-# [3.4.0-beta.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0-beta.1...v3.4.0-beta.2) (2022-11-14)
+
+### Features
+
+* minify & other optimisations ([e734c37](https://github.com/wanoo21/Angular-mjml-output/commit/e734c379c2466baf80124bda6a664d87209da9b0))
 
 
-### Bug Fixes
+### Performance Improvements
 
-* always send errors property ([41140f9](https://github.com/wanoo21/Angular-mjml-output/commit/41140f9b2140e5500dc80b074900099e52795be8))
+* Update blocks to the latest version ([5dd71a1](https://github.com/wanoo21/Angular-mjml-output/commit/5dd71a1e08f38cb361e286ae5eb6fa755cb0b93b))
 
 ### Bug Fixes
 
