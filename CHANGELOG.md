@@ -1,3 +1,10 @@
+# [3.4.0-beta.3](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0-beta.2...v3.4.0-beta.3) (2023-01-06)
+
+
+### Bug Fixes
+
+* send errors always ([fce85c7](https://github.com/wanoo21/Angular-mjml-output/commit/fce85c7037c5a9572b9d9993c0fb7fdd80f5301b))
+
 # [3.4.0-beta.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0-beta.1...v3.4.0-beta.2) (2022-11-14)
 
 
