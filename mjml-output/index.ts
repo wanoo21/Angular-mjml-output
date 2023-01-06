@@ -14,7 +14,6 @@ export function convertIPEmail(data: IIPDefaultEmail & { googleFonts: string[] }
         const {html, errors} = mjml2html(mjml, {
             fonts: {},
             keepComments: !isProduction,
-            beautify: !isProduction,
             validationLevel: isProduction ? 'soft' : 'strict'
         })
         if (errors.length) {
@@ -29,7 +28,7 @@ export function convertIPEmail(data: IIPDefaultEmail & { googleFonts: string[] }
                 }), errors: [] // errors must be sent always
             };
         }
-        return {mjml, html};
+        return {mjml, html, errors: []};
     } catch (error: any) {
         return {
             html: '', mjml: '',
