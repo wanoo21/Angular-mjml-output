@@ -2,6 +2,18 @@ export interface RenderingClass {
   render(): string;
 }
 
+export abstract class NavigationBlock {
+  readonly type?: 'navigation';
+  protected constructor(public innerText: string, public options: INavigationBlockOptions) {
+  }
+}
+
+export abstract class HtmlBlock {
+  readonly type?: 'html';
+  protected constructor(public innerHtml: string) {
+  }
+}
+
 export abstract class TextBlock {
   readonly type?: 'text';
   protected constructor(public innerText: string, public options: ITextBlockOptions) { }
@@ -170,6 +182,7 @@ export interface ITextBlockOptions {
   padding: IPadding;
 }
 
+
 export interface IImageBLockOptions {
   border: IBorder;
   width: IWidthHeight;
@@ -191,6 +204,23 @@ export interface IButtonBlockOptions {
   link: ILink;
   innerPadding: IPadding;
   padding: IPadding;
+}
+
+export interface INavigationBlockOptions {
+  align: TAlign;
+  hamburger: boolean;
+  color: string;
+  font: IFont;
+  lineHeight: ILineHeight;
+  letterSpacing: number;
+  padding: IPadding;
+  target: string;
+  textDecoration: "underline" | "overline" | "none";
+  elements: { label: string, href: string }[];
+}
+
+export interface IHtmlBlockOptions {
+
 }
 
 export interface IDividerBlockOptions {
