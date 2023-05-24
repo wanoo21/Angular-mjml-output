@@ -61,6 +61,13 @@ export interface IForRootConf {
   OwnerEmail: string;
 }
 
+export interface ISize {
+  top: number;
+  right: number;
+  left: number;
+  bottom: number;
+}
+
 export type TStructureTypes =
   | 'cols_1'
   | 'cols_2'
@@ -94,6 +101,7 @@ export type TBackgroundRepeat =
 export interface IBorder {
   color: string;
   style: string;
+  size: ISize;
   width: number;
   radius?: number;
 }
@@ -146,12 +154,12 @@ export interface ILink {
 
 export interface IStructureColumnOptions {
   background: IBackground;
-  border: IBorder;
+  border: Omit<IBorder, 'size'>;
   verticalAlign: TVerticalAlign;
 }
 
 export interface IStructureOptions {
-  border: IBorder;
+  border: Omit<IBorder, 'size'>;
   background: IBackground;
   padding: IPadding;
   margin: IMargin;
@@ -224,7 +232,7 @@ export interface IHtmlBlockOptions {
 }
 
 export interface IDividerBlockOptions {
-  border: IBorder;
+  border: Omit<IBorder, 'size'>;
   padding: IPadding;
 }
 

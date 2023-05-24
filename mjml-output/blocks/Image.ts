@@ -18,6 +18,10 @@ export class Image implements ImageBlock, RenderingClass {
             css-class="ip-image-block"
             padding="${createPadding(padding)}"
             border="${createBorder(border)}"
+            border-top="${border.size?.top}px ${border.color} ${border.style}"
+            border-right="${border.size?.right}px ${border.color} ${border.style}"
+            border-left="${border.size?.left}px ${border.color} ${border.style}"
+            border-bottom="${border.size?.bottom}px ${border.color} ${border.style}"
             border-radius="${border.radius}px"
             ${!width.auto ? `width="${width.value}px"` : ''}
             ${!height.auto ? `height="${height.value}px"` : ''}

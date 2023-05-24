@@ -1,12 +1,12 @@
 import {IBackground, IBorder, IFont, ILineHeight, IPadding, IWidthHeight, TStructureTypes} from './interfaces';
 import {Declaration, Rule, StyleRules} from "css";
 
-export function createBorder({color = '#000000', style = 'solid', width = 4}: IBorder): string {
+export function createBorder({color = '#000000', style = 'solid', width = 4}: Omit<IBorder, 'size'>): string {
     if (width <= 0) return '0';
     return `${width}px ${style} ${color}`;
 }
 
-export function extractBorder(border: string | undefined): IBorder {
+export function extractBorder(border: string | undefined): Omit<IBorder, "size"> {
     if (!border) return {width: 4, style: 'solid', color: '#000000'}
     const [width, style, color] = border.split(' ');
     return {width: parseInt(width), color, style}
