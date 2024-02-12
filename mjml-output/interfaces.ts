@@ -4,7 +4,7 @@ export interface RenderingClass {
 
 export abstract class NavigationBlock {
   readonly type?: 'navigation';
-  protected constructor(public innerText: string, public options: INavigationBlockOptions) {
+  protected constructor(public options: INavigationBlockOptions) {
   }
 }
 
@@ -54,6 +54,7 @@ export type IpBlocks =
   | ButtonBlock
   | DividerBlock
   | SpacerBlock
+  | NavigationBlock
   | SocialBlock;
 
 export interface IForRootConf {
