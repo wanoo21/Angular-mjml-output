@@ -29,6 +29,7 @@ async function isWritableOrCreate(folder: string) {
   try {
     await access(folder, fs.constants.R_OK | fs.constants.W_OK)
   } catch (err) {
+    // @ts-ignore
     if (err.code === 'ENOENT') {
       await mkdir(folder)
     } else {
@@ -65,7 +66,7 @@ function shot(category: string, template: string, html: string, small = false) {
   if (fs.existsSync(thumbName)) {
     return Promise.resolve()
   }
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     webshot(html, thumbName, {
       ...WEBSHOT_OPTIONS, ...(small && { screenSize: { width: 300 }, shotSize: { width: 300 } })
     }, (err: Error) => {
@@ -91,6 +92,7 @@ function shot(category: string, template: string, html: string, small = false) {
 
   } catch (err) {
     console.log('> Something went wrong')
+    // @ts-ignore
     console.log(err.message || err)
     process.exit(1)
   }
