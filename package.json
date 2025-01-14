@@ -40,6 +40,9 @@
       ]
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [],
   "repository": {
     "url": "https://github.com/wanoo21/Angular-mjml-output"
