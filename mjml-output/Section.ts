@@ -1,6 +1,7 @@
 import {IpBlocks, IStructure, IStructureColumnOptions, RenderingClass} from './interfaces';
 import {Button, Divider, Image, Social, Spacer, Text} from './blocks';
 import {createBorder, createPadding, createWidthHeight, defaultStructureColumnsWidth} from './utils';
+import { Navigation } from './blocks/Navigation';
 
 const defaultColumnsOptions: IStructureColumnOptions = {
     background: {
@@ -21,6 +22,8 @@ export class Section implements RenderingClass {
 
     private static getBlock(block: IpBlocks) {
         switch (block.type) {
+            case 'navigation':
+                return new Navigation(block.options).render();
             case 'text':
                 return new Text(block.innerText, block.options).render();
             case 'image':

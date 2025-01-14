@@ -42,7 +42,8 @@ export abstract class MjmlToObject<T> {
     extractBorder(): IBorder {
         return {
             ...extractBorder(this.block.attr('border')),
-            radius: parseInt(this.block.attr('border-radius') || '0px')
+            radius: parseInt(this.block.attr('border-radius') || '0px'),
+            size: {top: 0, right: 0, bottom: 0, left: 0}
         }
     }
 
