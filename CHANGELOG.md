@@ -43,6 +43,21 @@
 * **mjml-output:** interfaces ([1fea28a](https://github.com/wanoo21/Angular-mjml-output/commit/1fea28afa8ecd60140b1e9def4bfe339db502a8f))
 * **mjml-output:** navigation block ([07f26f3](https://github.com/wanoo21/Angular-mjml-output/commit/07f26f345a64cfe8863a7fecfc63c94f9fb8a1ad))
 
+# [3.5.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0...v3.5.0) (2025-01-14)
+
+
+### Bug Fixes
+
+* always send errors property ([41140f9](https://github.com/wanoo21/Angular-mjml-output/commit/41140f9b2140e5500dc80b074900099e52795be8))
+* send errors always ([fce85c7](https://github.com/wanoo21/Angular-mjml-output/commit/fce85c7037c5a9572b9d9993c0fb7fdd80f5301b))
+
+
+### Features
+
+* **mjml-output:** html block ([46cf6e6](https://github.com/wanoo21/Angular-mjml-output/commit/46cf6e6531fd6ffccfebba0c20a65846bab1499c))
+* **mjml-output:** interfaces ([1fea28a](https://github.com/wanoo21/Angular-mjml-output/commit/1fea28afa8ecd60140b1e9def4bfe339db502a8f))
+* **mjml-output:** navigation block ([07f26f3](https://github.com/wanoo21/Angular-mjml-output/commit/07f26f345a64cfe8863a7fecfc63c94f9fb8a1ad))
+
 # [3.5.0-beta.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.1-beta.1...v3.5.0-beta.1) (2023-03-31)
 
 
