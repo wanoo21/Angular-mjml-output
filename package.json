@@ -32,11 +32,11 @@
           ]
         }
       ],
-      "@semantic-release/github",
       [
         "@semantic-release/npm",
         {
-          "pkgRoot": "./dist"
+          "pkgRoot": "./dist",
+          "npmPublish": true
         }
       ]
     ]
