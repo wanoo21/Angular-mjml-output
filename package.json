@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Convert IPEmail object to a HTML a fully responsive Template!",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "start": "yarn run build && cross-env NODE_ENV=production node dist/server.js",
     "dev": "nodemon --exec ts-node server.ts",
