@@ -19,7 +19,6 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@wlocalhost'
-          always-auth: true
 
       - name: Install modules & build the Library
         run: |
