@@ -1,7 +1,3 @@
-import {readFileSync} from "node:fs";
-import {dirname, join} from "node:path";
-import {fileURLToPath} from "node:url";
-
 import {Section} from './Section';
 import {IIPDefaultEmail} from './interfaces';
 import {createBackground, createPadding, createWidthHeight} from './utils';
@@ -23,11 +19,7 @@ export class EmailTemplate {
                     <mj-attributes>
                         <mj-all padding="${createPadding(general.global.padding)}" direction="${general.direction}" font-family="Arial, Helvetica, sans-serif"></mj-all>
                     </mj-attributes>
-                    <mj-style>
-                        ${readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'styles.css'), {encoding: 'utf-8'})}
-                    </mj-style>
                     <mj-style inline="inline">
-                        ${readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'inline-styles.css'), {encoding: 'utf-8'})}
                         .body {
                           padding: ${createPadding(general.padding)};
                           background: ${createBackground(general.background)};

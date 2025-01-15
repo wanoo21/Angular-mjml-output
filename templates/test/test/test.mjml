@@ -1,0 +1,773 @@
+
+<mjml>
+    <mj-head>
+        <mj-title></mj-title>
+        <mj-preview></mj-preview>
+        <mj-font name="Open Sans" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" />,<mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" />
+        <mj-attributes>
+            <mj-all
+                    padding="0px 0px 0px 0px"
+                    direction="ltr"
+                    font-family="Arial, Helvetica, sans-serif"
+            ></mj-all>
+        </mj-attributes>
+        <mj-style>
+            /*@media all and (max-width: 480px) {*/
+            /*  .ip-section:not(.disable-responsive) .ip-column > table > tbody > tr > td {*/
+            /*    padding: 0 !important;*/
+            /*  }*/
+            /*  .ip-section:not(.disable-responsive) .ip-column + .ip-column {*/
+            /*    margin-top: 8px;*/
+            /*  }*/
+            /*}*/
+
+
+            .ip-text-block p,
+            .ip-text-block ol,
+            .ip-text-block ul,
+            .ip-text-block pre,
+            .ip-text-block blockquote,
+            .ip-text-block h1,
+            .ip-text-block h2,
+            .ip-text-block h3,
+            .ip-text-block h4,
+            .ip-text-block h5,
+            .ip-text-block h6 {
+                margin: 0;
+                padding: 0;
+                counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ul > li::before {
+                content: '\2022';
+            }
+            .ip-text-block ul[data-checked=true],
+            .ip-text-block ul[data-checked=false] {
+                pointer-events: none;
+            }
+            .ip-text-block ul[data-checked=true] > li *,
+            .ip-text-block ul[data-checked=false] > li * {
+                pointer-events: all;
+            }
+            .ip-text-block ul[data-checked=true] > li::before,
+            .ip-text-block ul[data-checked=false] > li::before {
+                color: #777;
+                cursor: pointer;
+                pointer-events: all;
+            }
+            .ip-text-block ul[data-checked=true] > li::before {
+                content: '\2611';
+            }
+            .ip-text-block ul[data-checked=false] > li::before {
+                content: '\2610';
+            }
+            .ip-text-block li::before {
+                display: inline-block;
+                white-space: nowrap;
+                width: 1.2em;
+            }
+            .ip-text-block li:not(.ql-direction-rtl)::before {
+                margin-left: -1.5em;
+                margin-right: 0.3em;
+                text-align: right;
+            }
+            .ip-text-block li.ql-direction-rtl::before {
+                margin-left: 0.3em;
+                margin-right: -1.5em;
+            }
+            .ip-text-block ol li {
+                counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+                counter-increment: list-0;
+            }
+            .ip-text-block ol li:before {
+                content: counter(list-0, decimal) '. ';
+            }
+            .ip-text-block ol li.ql-indent-1 {
+                counter-increment: list-1;
+            }
+            .ip-text-block ol li.ql-indent-1:before {
+                content: counter(list-1, lower-alpha) '. ';
+            }
+            .ip-text-block ol li.ql-indent-1 {
+                counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-2 {
+                counter-increment: list-2;
+            }
+            .ip-text-block ol li.ql-indent-2:before {
+                content: counter(list-2, lower-roman) '. ';
+            }
+            .ip-text-block ol li.ql-indent-2 {
+                counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-3 {
+                counter-increment: list-3;
+            }
+            .ip-text-block ol li.ql-indent-3:before {
+                content: counter(list-3, decimal) '. ';
+            }
+            .ip-text-block ol li.ql-indent-3 {
+                counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-4 {
+                counter-increment: list-4;
+            }
+            .ip-text-block ol li.ql-indent-4:before {
+                content: counter(list-4, lower-alpha) '. ';
+            }
+            .ip-text-block ol li.ql-indent-4 {
+                counter-reset: list-5 list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-5 {
+                counter-increment: list-5;
+            }
+            .ip-text-block ol li.ql-indent-5:before {
+                content: counter(list-5, lower-roman) '. ';
+            }
+            .ip-text-block ol li.ql-indent-5 {
+                counter-reset: list-6 list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-6 {
+                counter-increment: list-6;
+            }
+            .ip-text-block ol li.ql-indent-6:before {
+                content: counter(list-6, decimal) '. ';
+            }
+            .ip-text-block ol li.ql-indent-6 {
+                counter-reset: list-7 list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-7 {
+                counter-increment: list-7;
+            }
+            .ip-text-block ol li.ql-indent-7:before {
+                content: counter(list-7, lower-alpha) '. ';
+            }
+            .ip-text-block ol li.ql-indent-7 {
+                counter-reset: list-8 list-9;
+            }
+            .ip-text-block ol li.ql-indent-8 {
+                counter-increment: list-8;
+            }
+            .ip-text-block ol li.ql-indent-8:before {
+                content: counter(list-8, lower-roman) '. ';
+            }
+            .ip-text-block ol li.ql-indent-8 {
+                counter-reset: list-9;
+            }
+            .ip-text-block ol li.ql-indent-9 {
+                counter-increment: list-9;
+            }
+            .ip-text-block ol li.ql-indent-9:before {
+                content: counter(list-9, decimal) '. ';
+            }
+            .ip-text-block.ql-blank::before {
+                color: rgba(0,0,0,0.6);
+                content: attr(data-placeholder);
+                font-style: italic;
+                left: 15px;
+                pointer-events: none;
+                position: absolute;
+                right: 15px;
+            }
+
+        </mj-style>
+        <mj-raw>
+            <!--[if gte mso]>
+            <style type="text/css">
+                img { min-height: auto; }
+            </style>
+            <![endif]-->
+        </mj-raw>
+        <mj-style inline="inline">
+            .ip-text-block ol,
+            .ip-text-block ul {
+                margin: 0;
+                padding-left: 1.5em;
+            }
+            .ip-text-block ol > li,
+            .ip-text-block ul > li {
+                list-style-type: none;
+            }
+            .ip-text-block ol li:not(.ql-direction-rtl),
+            .ip-text-block ul li:not(.ql-direction-rtl) {
+                padding-left: 1.5em;
+            }
+            .ip-text-block ol li.ql-direction-rtl,
+            .ip-text-block ul li.ql-direction-rtl {
+                padding-right: 1.5em;
+            }
+            .ip-text-block .ql-indent-1:not(.ql-direction-rtl) {
+                padding-left: 3em;
+            }
+            .ip-text-block li.ql-indent-1:not(.ql-direction-rtl) {
+                padding-left: 4.5em;
+            }
+            .ip-text-block .ql-indent-1.ql-direction-rtl.ql-align-right {
+                padding-right: 3em;
+            }
+            .ip-text-block li.ql-indent-1.ql-direction-rtl.ql-align-right {
+                padding-right: 4.5em;
+            }
+            .ip-text-block .ql-indent-2:not(.ql-direction-rtl) {
+                padding-left: 6em;
+            }
+            .ip-text-block li.ql-indent-2:not(.ql-direction-rtl) {
+                padding-left: 7.5em;
+            }
+            .ip-text-block .ql-indent-2.ql-direction-rtl.ql-align-right {
+                padding-right: 6em;
+            }
+            .ip-text-block li.ql-indent-2.ql-direction-rtl.ql-align-right {
+                padding-right: 7.5em;
+            }
+            .ip-text-block .ql-indent-3:not(.ql-direction-rtl) {
+                padding-left: 9em;
+            }
+            .ip-text-block li.ql-indent-3:not(.ql-direction-rtl) {
+                padding-left: 10.5em;
+            }
+            .ip-text-block .ql-indent-3.ql-direction-rtl.ql-align-right {
+                padding-right: 9em;
+            }
+            .ip-text-block li.ql-indent-3.ql-direction-rtl.ql-align-right {
+                padding-right: 10.5em;
+            }
+            .ip-text-block .ql-indent-4:not(.ql-direction-rtl) {
+                padding-left: 12em;
+            }
+            .ip-text-block li.ql-indent-4:not(.ql-direction-rtl) {
+                padding-left: 13.5em;
+            }
+            .ip-text-block .ql-indent-4.ql-direction-rtl.ql-align-right {
+                padding-right: 12em;
+            }
+            .ip-text-block li.ql-indent-4.ql-direction-rtl.ql-align-right {
+                padding-right: 13.5em;
+            }
+            .ip-text-block .ql-indent-5:not(.ql-direction-rtl) {
+                padding-left: 15em;
+            }
+            .ip-text-block li.ql-indent-5:not(.ql-direction-rtl) {
+                padding-left: 16.5em;
+            }
+            .ip-text-block .ql-indent-5.ql-direction-rtl.ql-align-right {
+                padding-right: 15em;
+            }
+            .ip-text-block li.ql-indent-5.ql-direction-rtl.ql-align-right {
+                padding-right: 16.5em;
+            }
+            .ip-text-block .ql-indent-6:not(.ql-direction-rtl) {
+                padding-left: 18em;
+            }
+            .ip-text-block li.ql-indent-6:not(.ql-direction-rtl) {
+                padding-left: 19.5em;
+            }
+            .ip-text-block .ql-indent-6.ql-direction-rtl.ql-align-right {
+                padding-right: 18em;
+            }
+            .ip-text-block li.ql-indent-6.ql-direction-rtl.ql-align-right {
+                padding-right: 19.5em;
+            }
+            .ip-text-block .ql-indent-7:not(.ql-direction-rtl) {
+                padding-left: 21em;
+            }
+            .ip-text-block li.ql-indent-7:not(.ql-direction-rtl) {
+                padding-left: 22.5em;
+            }
+            .ip-text-block .ql-indent-7.ql-direction-rtl.ql-align-right {
+                padding-right: 21em;
+            }
+            .ip-text-block li.ql-indent-7.ql-direction-rtl.ql-align-right {
+                padding-right: 22.5em;
+            }
+            .ip-text-block .ql-indent-8:not(.ql-direction-rtl) {
+                padding-left: 24em;
+            }
+            .ip-text-block li.ql-indent-8:not(.ql-direction-rtl) {
+                padding-left: 25.5em;
+            }
+            .ip-text-block .ql-indent-8.ql-direction-rtl.ql-align-right {
+                padding-right: 24em;
+            }
+            .ip-text-block li.ql-indent-8.ql-direction-rtl.ql-align-right {
+                padding-right: 25.5em;
+            }
+            .ip-text-block .ql-indent-9:not(.ql-direction-rtl) {
+                padding-left: 27em;
+            }
+            .ip-text-block li.ql-indent-9:not(.ql-direction-rtl) {
+                padding-left: 28.5em;
+            }
+            .ip-text-block .ql-indent-9.ql-direction-rtl.ql-align-right {
+                padding-right: 27em;
+            }
+            .ip-text-block li.ql-indent-9.ql-direction-rtl.ql-align-right {
+                padding-right: 28.5em;
+            }
+            .ip-text-block .ql-video {
+                display: block;
+                max-width: 100%;
+            }
+            .ip-text-block .ql-video.ql-align-center {
+                margin: 0 auto;
+            }
+            .ip-text-block .ql-video.ql-align-right {
+                margin: 0 0 0 auto;
+            }
+            .ip-text-block .ql-bg-black {
+                background-color: #000;
+            }
+            .ip-text-block .ql-bg-red {
+                background-color: #e60000;
+            }
+            .ip-text-block .ql-bg-orange {
+                background-color: #f90;
+            }
+            .ip-text-block .ql-bg-yellow {
+                background-color: #ff0;
+            }
+            .ip-text-block .ql-bg-green {
+                background-color: #008a00;
+            }
+            .ip-text-block .ql-bg-blue {
+                background-color: #06c;
+            }
+            .ip-text-block .ql-bg-purple {
+                background-color: #93f;
+            }
+            .ip-text-block .ql-color-white {
+                color: #fff;
+            }
+            .ip-text-block .ql-color-red {
+                color: #e60000;
+            }
+            .ip-text-block .ql-color-orange {
+                color: #f90;
+            }
+            .ip-text-block .ql-color-yellow {
+                color: #ff0;
+            }
+            .ip-text-block .ql-color-green {
+                color: #008a00;
+            }
+            .ip-text-block .ql-color-blue {
+                color: #06c;
+            }
+            .ip-text-block .ql-color-purple {
+                color: #93f;
+            }
+            .ip-text-block .ql-font-serif {
+                font-family: Georgia, Times New Roman, serif;
+            }
+            .ip-text-block .ql-font-monospace {
+                font-family: Monaco, Courier New, monospace;
+            }
+            .ip-text-block .ql-size-small {
+                font-size: 0.75em;
+            }
+            .ip-text-block .ql-size-large {
+                font-size: 1.5em;
+            }
+            .ip-text-block .ql-size-huge {
+                font-size: 2.5em;
+            }
+            .ip-text-block .ql-direction-rtl {
+                direction: rtl;
+                text-align: inherit;
+            }
+            .ip-text-block .ql-align-center {
+                text-align: center;
+            }
+            .ip-text-block .ql-align-justify {
+                text-align: justify;
+            }
+            .ip-text-block .ql-align-right {
+                text-align: right;
+            }
+
+            /**/
+            .ip-text-block p, h1, h2, h3, h4, h5, h6 {
+                margin: 0;
+            }
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+                font-weight: inherit;
+                line-height: inherit;
+            }
+            .ip-text-block h1 {
+                font-size: 2em;
+            }
+            .ip-text-block h2,
+            .ql-size-large {
+                font-size: 1.5em;
+            }
+            .ip-text-block h3 {
+                font-size: 1.17em;
+            }
+            .ip-text-block h4 {
+                font-size: 1em;
+            }
+            .ip-text-block h5 {
+                font-size: 0.83em;
+            }
+            .ip-text-block h6 {
+                font-size: 0.67em;
+            }
+            .ip-text-block .ql-size-small {
+                font-size: 0.75em;
+            }
+            .ip-text-block .ql-size-huge {
+                font-size: 2.5em;
+            }
+            .ip-text-block .ql-align-left {
+                text-align: left;
+            }
+            .ip-text-block .ql-align-center {
+                text-align: center;
+            }
+            .ip-text-block .ql-align-right {
+                text-align: right;
+            }
+            .ip-text-block .ql-align-justify {
+                text-align: justify;
+            }
+            .ip-text-block .ql-direction-rtl {
+                direction: rtl;
+            }
+            .ip-text-block .ql-direction-ltr {
+                direction: ltr;
+            }
+            .ip-column.ip-border-radius table {
+                border-collapse: separate !important;
+            }
+
+
+            .1660743025836 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }.1657200921199 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }.1657200921199 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }.1657200921199 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }.1657200921199 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }.1657200921199 {
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+                border: 0;
+            }
+            .body {
+                padding: 16px 10px 10px 10px;
+                background: #fafafa ;
+                background-size: auto;
+            }
+        </mj-style>
+    </mj-head>
+    <mj-body
+            css-class="body"
+            width="600px"
+            background-color="#fafafa">
+
+        <mj-section
+                css-class="cols_1 1660743025836 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="4px 4px 4px 4px"
+                background-color="#ffffff"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="100%"
+                    background-color="transparent"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-text
+                        css-class="ip-text-block"
+                        color="#141414"
+                        font-family="Open Sans, Arial, Helvetica, sans-serif"
+                        font-size="10px"
+                        font-style="normal"
+                        font-weight="400"
+                        text-decoration="none"
+                        align="left"
+                        line-height="120%"
+                        padding="10px 25px 10px 25px">
+                    <!-- htmlmin:ignore --><p>Preheader text</p><!-- htmlmin:ignore -->
+                </mj-text>
+
+            </mj-column>
+
+        </mj-section>
+
+        <mj-section
+                css-class="cols_1 1657200921199 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="0px 0px 0px 0px"
+                background-color="#e60005"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="100%"
+                    background-color="transparent"
+                    padding="0px 0px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-image
+                        css-class="ip-image-block"
+                        padding="0px 0px 0px 25px"
+                        border="0"
+                        border-radius="0px"
+
+
+                        href=""
+                        target="_blank"
+                        align="left"
+                        title=""
+                        alt=""
+                        src=https://cdn.hubengage.com/mygd/email/size-1024/35ff383e-8859-4d21-bba5-a12bb76d7b15.png>
+                </mj-image>
+
+            </mj-column>
+
+        </mj-section>
+
+        <mj-section
+                css-class="cols_1 1657200921199 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="0px 0px 0px 0px"
+                background-color="#ffffff"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="100%"
+                    background-color="transparent"
+                    padding="0px 0px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-image
+                        css-class="ip-image-block"
+                        padding="0px 0px 0px 0px"
+                        border="0"
+                        border-radius="0px"
+
+
+                        href=""
+                        target="_blank"
+                        align="center"
+                        title=""
+                        alt=""
+                        src=https://via.placeholder.com/600x200?text=CHANGE+ME>
+                </mj-image>
+
+            </mj-column>
+
+        </mj-section>
+
+        <mj-section
+                css-class="cols_1 1657200921199 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="4px 4px 4px 4px"
+                background-color="#ffffff"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="100%"
+                    background-color="#ffffff"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-text
+                        css-class="ip-text-block"
+                        color="#000000"
+                        font-family="Open Sans, Arial, Helvetica, sans-serif"
+                        font-size="14px"
+                        font-style="normal"
+                        font-weight="400"
+                        text-decoration="none"
+                        align="left"
+                        line-height="120%"
+                        padding="10px 25px 10px 25px">
+                    <!-- htmlmin:ignore --><p>Spicy jalapeno bacon ipsum dolor amet tail spare ribs filet mignon, hamburger ground round burgdoggen ham hock shank strip steak. Salami alcatra beef, strip steak bacon t-bone landjaeger pastrami. Burgdoggen pork sausage pastrami ham hock. Pork chop shankle picanha biltong prosciutto pork loin burgdoggen filet mignon pig.</p><p><br></p><p>Chislic frankfurter bresaola, jerky fatback picanha pig meatball short loin shoulder. Picanha venison cupim cow landjaeger, bresaola ham hock short loin pork chop filet mignon salami. Tongue alcatra shankle frankfurter drumstick hamburger tri-tip short loin turkey strip steak pork swine burgdoggen tail tenderloin.</p><p><br></p><p>Thanks,</p><p>The Great Dane team</p><!-- htmlmin:ignore -->
+                </mj-text>
+
+            </mj-column>
+
+        </mj-section>
+
+        <mj-section
+                css-class="cols_2 1657200921199 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="4px 4px 4px 4px"
+                background-color="#c8cdd2"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="50%"
+                    background-color="transparent"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-image
+                        css-class="ip-image-block"
+                        padding="0px 0px 0px 25px"
+                        border="0"
+                        border-radius="0px"
+                        width="193px"
+
+                        href=""
+                        target="_blank"
+                        align="left"
+                        title=""
+                        alt=""
+                        src=https://cdn.hubengage.com/mygd/email/size-1024/36d2661b-42e5-4cfd-ab21-1fd63960ad71.png>
+                </mj-image>
+
+            </mj-column>
+
+            <mj-column
+                    width="50%"
+                    background-color="transparent"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-social
+                        color="#333333"
+                        align="right"
+                        font-family="Roboto, Arial, Helvetica, sans-serif"
+                        font-size="16px"
+                        font-style="normal"
+                        font-weight="400"
+                        icon-size="22px"
+                        line-height="16px"
+                        inner-padding="4px 4px 4px 4px"
+                        padding="0px 25px 0px 25px"
+                        mode="horizontal">
+                    <mj-social-element
+                            name="facebook-noshare"
+                            href="https://www.facebook.com/GreatDaneTrailers/" >
+
+                    </mj-social-element><mj-social-element
+                        name="instagram"
+                        href="https://www.instagram.com/_greatdane/" >
+
+                </mj-social-element><mj-social-element
+                        name="linkedin-noshare"
+                        href="https://www.linkedin.com/company/greatdane/mycompany/" >
+
+                </mj-social-element><mj-social-element
+                        name="twitter-noshare"
+                        href="https://twitter.com/_greatdane" >
+
+                </mj-social-element>
+                </mj-social>
+
+            </mj-column>
+
+        </mj-section>
+
+        <mj-section
+                css-class="cols_2 1657200921199 ip-section"
+                border-radius="0px"
+                text-align="center"
+                padding="4px 4px 4px 4px"
+                background-color="#c8cdd2"
+                background-url=""
+                background-repeat="repeat"
+                background-size="auto">
+
+            <mj-column
+                    width="50%"
+                    background-color="transparent"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-text
+                        css-class="ip-text-block"
+                        color="#000000"
+                        font-family="Open Sans, Arial, Helvetica, sans-serif"
+                        font-size="10px"
+                        font-style="normal"
+                        font-weight="400"
+                        text-decoration="none"
+                        align="left"
+                        line-height="120%"
+                        padding="10px 25px 10px 25px">
+                    <!-- htmlmin:ignore --><p>222 N. LaSalle St., Suite 920, Chicago, Il 60601</p><p>P: (912) 644-2100</p><p>E: marketing@greatdane.com</p><!-- htmlmin:ignore -->
+                </mj-text>
+
+            </mj-column>
+
+            <mj-column
+                    width="50%"
+                    background-color="transparent"
+                    padding="4px 4px"
+                    border="0"
+                    border-radius="0px"
+                    vertical-align="top"
+                    css-class="ip-column ">
+
+                <mj-text
+                        css-class="ip-text-block"
+                        color="#000000"
+                        font-family="Open Sans, Arial, Helvetica, sans-serif"
+                        font-size="10px"
+                        font-style="normal"
+                        font-weight="400"
+                        text-decoration="none"
+                        align="left"
+                        line-height="120%"
+                        padding="10px 25px 10px 25px">
+                    <!-- htmlmin:ignore --><p class="ql-align-right">Website | Unsubscribe</p><p class="ql-align-right">Privacy | Terms</p><p class="ql-align-right">(c) 2022 Great Dane, All rights reserved.</p><!-- htmlmin:ignore -->
+                </mj-text>
+
+            </mj-column>
+
+        </mj-section>
+
+    </mj-body>
+</mjml>
