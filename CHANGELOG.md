@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/wanoo21/Angular-mjml-output/compare/v3.5.0...v3.5.1) (2025-01-15)
+
+
+### Bug Fixes
+
+* esm fixes ([b58ec44](https://github.com/wanoo21/Angular-mjml-output/commit/b58ec44997bea589b612aecb138ddad93364d1de))
+
 # [3.5.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.4.0...v3.5.0) (2025-01-14)
 
 
