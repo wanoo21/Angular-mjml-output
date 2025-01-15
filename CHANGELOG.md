@@ -1,3 +1,11 @@
+# [3.6.0](https://github.com/wanoo21/Angular-mjml-output/compare/v3.5.2...v3.6.0) (2025-01-15)
+
+
+### Features
+
+* export convertMjmlToHtml helper ([56be09f](https://github.com/wanoo21/Angular-mjml-output/commit/56be09f009f61e2f9aaa942ab163cba42e589f42))
+* no more text block styles ([2e4e80d](https://github.com/wanoo21/Angular-mjml-output/commit/2e4e80d90e4ded204e74fcbd28e0150927cf4dcc))
+
 ## [3.5.2](https://github.com/wanoo21/Angular-mjml-output/compare/v3.5.1...v3.5.2) (2025-01-15)
 
 
