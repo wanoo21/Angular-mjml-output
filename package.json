@@ -5,11 +5,6 @@
   "main": "index.js",
   "type": "module",
   "private": false,
-  "files": [
-    "thumbnails",
-    "README.md",
-    "CHANGELOG.md"
-  ],
   "scripts": {
     "start": "pnpm run build && cross-env NODE_ENV=production node dist/server.js",
     "dev": "tsx watch server.ts",
