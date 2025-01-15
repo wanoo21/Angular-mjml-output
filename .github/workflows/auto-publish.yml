@@ -20,8 +20,8 @@ jobs:
 
       - name: Install modules & build the Library
         run: |
-          yarn install
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
