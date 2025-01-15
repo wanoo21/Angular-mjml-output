@@ -49,10 +49,6 @@ export function createLineHeight({value = 22, unit = 'px'}: ILineHeight): string
     return unit !== 'none' ? `${value}${unit}` : '120%';
 }
 
-// export function extractLineHeight(lineHeight: string): ILineHeight {
-//     return
-// }
-
 export const createWidthHeight = ({
                                       value = 100,
                                       unit = '%',
