@@ -5,9 +5,9 @@ export class MjmlSocial extends MjmlToObject<ISocialBlockOptions> {
     type: TSupportedBlocks = "social"
     networks = this.block.find('mj-social-element').toArray().map(network => {
         return {
-            name: network.attribs.name.replace('-noshare', ''),
-            href: network.attribs.href,
-            label: network.firstChild.data?.trim()
+            // name: network.attribs.name.replace('-noshare', ''),
+            // href: network.attribs.href,
+            // label: network.firstChild.data?.trim()
         } as ISocialNetwork
     })
 
