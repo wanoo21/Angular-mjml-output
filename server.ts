@@ -1,7 +1,7 @@
-import {createReadStream, readFileSync} from 'fs';
+import {createReadStream, readFileSync} from 'node:fs';
 import express, {Request, Response} from 'express';
 import cors from 'cors';
-import {json, urlencoded} from 'body-parser';
+import bodyParser from 'body-parser';
 
 import {convertIPEmail, getFilePathByType, onlyMJML} from './index';
 import {convertMjmlToIpEmail} from './mjml-to-email';
@@ -12,8 +12,8 @@ const app = express();
 
 app.disable('etag').disable('x-powered-by');
 
-app.use(json({limit: '1mb'}));
-app.use(urlencoded({limit: '1mb', extended: true}));
+app.use(bodyParser.json({limit: '1mb'}));
+app.use(bodyParser.urlencoded({limit: '1mb', extended: true}));
 app.use(cors());
 
 app.set('port', PORT || 3000);

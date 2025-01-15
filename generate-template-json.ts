@@ -1,5 +1,5 @@
-import { writeFileSync } from 'fs'
-import { getDirectoriesNames } from './utils';
+import {writeFileSync} from 'node:fs'
+import {getDirectoriesNames} from './utils';
 
 const templates = getDirectoriesNames('./templates').map(category => {
   return {

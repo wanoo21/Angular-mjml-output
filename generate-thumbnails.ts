@@ -1,17 +1,18 @@
-import { promisify } from 'util'
+import {promisify} from 'node:util'
 import webshot from 'webshot'
-import path from 'path'
-import fs from 'fs'
+import path, {dirname} from 'node:path'
+import fs from 'node:fs'
 import mjml2html from 'mjml'
+import {fileURLToPath} from "node:url";
 
 import categories from './templates/templates.json'
-import { getFilePathByType } from './utils'
+import {getFilePathByType} from './utils'
 
 const access = promisify(fs.access)
 const mkdir = promisify(fs.mkdir)
 
-const TEMPLATES_FOLDER = path.join(__dirname, 'templates')
-const THUMB_FOLDER = path.join(__dirname, 'thumbnails')
+const TEMPLATES_FOLDER = path.join(dirname(fileURLToPath(import.meta.url)), 'templates')
+const THUMB_FOLDER = path.join(dirname(fileURLToPath(import.meta.url)), 'thumbnails')
 
 const WEBSHOT_OPTIONS = {
   siteType: 'html',
@@ -42,7 +43,7 @@ async function generateThumbnail(category: string, template: string) {
   console.log(` > Creating ${category}/${template}`)
   const mjml = fs.readFileSync(
     getFilePathByType(path.join(TEMPLATES_FOLDER, category, template), '.mjml'),
-    { encoding: 'utf-8' }
+    {encoding: 'utf-8'}
   )
   const html = await getHTML(mjml);
   await Promise.all([shot(category, template, html), /** shot(category, template, html, true) */])
@@ -68,9 +69,11 @@ function shot(category: string, template: string, html: string, small = false) {
   }
   return new Promise<void>((resolve, reject) => {
     webshot(html, thumbName, {
-      ...WEBSHOT_OPTIONS, ...(small && { screenSize: { width: 300 }, shotSize: { width: 300 } })
+      ...WEBSHOT_OPTIONS, ...(small && {screenSize: {width: 300}, shotSize: {width: 300}})
     }, (err: Error) => {
-      if (err) { return reject(err) }
+      if (err) {
+        return reject(err)
+      }
       resolve()
     })
   })
@@ -82,7 +85,7 @@ function shot(category: string, template: string, html: string, small = false) {
     await isWritableOrCreate(THUMB_FOLDER)
 
     console.log('>> Generating thumbnails')
-    await categories.reduce(async (promise, { templates, category }) => {
+    await categories.reduce(async (promise, {templates, category}) => {
       await promise
       return await templates.reduce(async (promise2, template) => {
         await promise2
