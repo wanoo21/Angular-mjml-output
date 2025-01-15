@@ -26,7 +26,7 @@ jobs:
 
       - name: Install modules & build the Library
         run: |
-          pnpm install --frozen-lockfile
+          pnpm install
           pnpm build
 
       - name: Semantic Release
